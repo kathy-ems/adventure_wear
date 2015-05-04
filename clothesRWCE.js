@@ -27,7 +27,8 @@
         };
         fn('blue shirt');
         alert(ACTUAL);
-        expect(ACTUAL === ['white shirt','blue shirt']).to.be.true;
+        assert(Array.isArray([ACTUAL]))
+        expect(ACTUAL === [['white shirt,blue shirt']]).to.be.true;
       });
 
       it('a function has access to the variables contained within the same scope that function was created in', function () {
