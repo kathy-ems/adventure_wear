@@ -1,7 +1,6 @@
 (function () {
 
-
-  describe('Function Exercises', function () {
+  describe('What to Wear ', function () {
 
       var ACTUAL;
 
@@ -10,7 +9,7 @@
         ACTUAL = null;
       });
 
-      it('add a top to an array', function () {
+      it('a top can be added to an array', function () {
         var fn = function (mytop) {
           var tops = mytop;
           ACTUAL = tops;
@@ -19,16 +18,37 @@
         expect(ACTUAL === 'shirt').to.be.true;
       });
 
-      it('add a second top to an array', function () {
+      it('a second top can be added to an array', function () {
         var fn = function (mytop) {
           var tops = ['white shirt'];
-          tops.push(mytop);
+          tops = tops.concat(mytop);
+          ACTUAL = tops;
+        };
+        fn('blue shirt');
+        expect(ACTUAL).to.include('blue shirt');
+      });
+
+      it('a second top can be added to an array and full array is returned', function () {
+        var fn = function (mytop) {
+          var tops = ['white shirt'];
+          tops = tops.concat(mytop);
           ACTUAL = tops;
         };
         fn('blue shirt');
         alert(ACTUAL);
-        assert(Array.isArray([ACTUAL]))
-        expect(ACTUAL === [['white shirt,blue shirt']]).to.be.true;
+        expect(ACTUAL).to.eql(['white shirt', 'blue shirt' ]);
+      });
+
+
+      it('a top already in array is not added', function () {
+        var fn = function (mytop) {
+          var tops = ['white shirt'];
+          tops = tops.concat(mytop);
+          ACTUAL = tops;
+        };
+        fn('blue shirt');
+        alert(ACTUAL);
+        expect(ACTUAL).to.eql(['white shirt', 'blue shirt' ]);
       });
 
       it('a function has access to the variables contained within the same scope that function was created in', function () {
@@ -48,7 +68,7 @@
         expect(function () {
           ACTUAL = localToFirstFn;
         }).to.throw();
-        expect(ACTUAL === '???').to.be.true;
+        expect(ACTUAL === "???").to.be.true;
       });
 
       it('a function\'s local scope variables are not available anywhere outside that function, regardless of the context it\'s called in', function () {
