@@ -1,6 +1,6 @@
 (function () {
 
-  describe('What to Wear ', function () {
+  describe('What to Wear', function () {
 
       var ACTUAL;
       // This resets the value of ACTUAL (to null) before each test is run
@@ -89,7 +89,7 @@
         expect(ACTUAL).to.eql(['white shirt', 'blue shirt', 'coat' ]);
       });
 
-      it('a new top is added to the array of tops with foreach', function () {
+      it('a new top is added to the array of tops with higher order function, foreach', function () {
         var fn = function (mytop) {
           var mytop = mytop;
           var inArray = false;
@@ -172,17 +172,26 @@
 
       });
 
-      it('display tops object', function () {
+      it('obtain property of tops object', function () {
         var fn = function(n) {
           var mytop = n;
           var inArray = false;
           var tops = { topslist: 'white shirt'};
-          alert(inArray);
+          ACTUAL = tops.topslist;
+        };
         fn('coat');
-        expect(ACTUAL).to.eql(['white shirt', 'blue shirt', 'coat' ]);
-        }
-      };
+        expect(ACTUAL).to.eql('white shirt');
+      });
 
+    });
+
+      describe('Function Exercises', function () {
+
+          var ACTUAL;
+          // This resets the value of ACTUAL (to null) before each test is run
+          beforeEach(function () {
+            ACTUAL = null;
+          });
 
       it('a function has access to the variables contained within the same scope that function was created in', function () {
         var name = 'outer';
