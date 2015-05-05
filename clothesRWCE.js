@@ -35,18 +35,28 @@
           ACTUAL = tops;
         };
         fn('blue shirt');
-        alert(ACTUAL);
         expect(ACTUAL).to.eql(['white shirt', 'blue shirt' ]);
       });
 
 
       it('a top already in array is not added', function () {
         var fn = function (mytop) {
-          var tops = ['white shirt'];
-          tops = tops.concat(mytop);
+          var tops = ['white shirt', 'blue shirt'];
+          var inArray = false;
+          for(var i = 0; i < tops.length; i++){
+            if(mytop === tops[i]){
+            alert("already in the list!");
+            var inArray = true;
+          }else{
+            tops.concat(mytop);
+
+          }
           ACTUAL = tops;
+          }
+          alert(inArray);
+
         };
-        fn('blue shirt');
+        fn('coat');
         alert(ACTUAL);
         expect(ACTUAL).to.eql(['white shirt', 'blue shirt' ]);
       });
