@@ -28,7 +28,7 @@
         expect(ACTUAL).to.include('blue shirt');
       });
 
-      it('a second top can be added to an array and full array is returned', function () {
+      it('a second top can be added to an array', function () {
         var fn = function (mytop) {
           var tops = ['white shirt'];
           tops = tops.concat(mytop);
@@ -44,21 +44,22 @@
           var tops = ['white shirt', 'blue shirt'];
           var inArray = false;
           for(var i = 0; i < tops.length; i++){
+            alert("compare " + tops[i] + " and " + mytop);
             if(mytop === tops[i]){
-            alert("already in the list!");
+              alert(tops[i] + " already in list: " + inArray);
             var inArray = true;
-          }else{
-            tops.concat(mytop);
-
+            }else{
+            }
+          }
+          alert(tops[i] + " already in list: " + inArray);
+          if(inArray = false){
+            tops = tops.concat(mytop);
           }
           ACTUAL = tops;
-          }
-          alert(inArray);
-
         };
         fn('coat');
         alert(ACTUAL);
-        expect(ACTUAL).to.eql(['white shirt', 'blue shirt' ]);
+        expect(ACTUAL).to.eql(['white shirt', 'blue shirt', 'coat' ]);
       });
 
       it('a function has access to the variables contained within the same scope that function was created in', function () {
