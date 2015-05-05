@@ -3,13 +3,12 @@
   describe('What to Wear ', function () {
 
       var ACTUAL;
-
       // This resets the value of ACTUAL (to null) before each test is run
       beforeEach(function () {
         ACTUAL = null;
       });
 
-      it('a top can be added to an array', function () {
+      it('a top can be added to a new array', function () {
         var fn = function (mytop) {
           var tops = mytop;
           ACTUAL = tops;
@@ -18,7 +17,7 @@
         expect(ACTUAL === 'shirt').to.be.true;
       });
 
-      it('a second top can be added to an array', function () {
+      it('a top can be added to an exisiting array', function () {
         var fn = function (mytop) {
           var tops = ['white shirt'];
           tops = tops.concat(mytop);
@@ -38,29 +37,152 @@
         expect(ACTUAL).to.eql(['white shirt', 'blue shirt' ]);
       });
 
-
       it('a top already in array is not added', function () {
         var fn = function (mytop) {
           var tops = ['white shirt', 'blue shirt'];
           var inArray = false;
-          for(var i = 0; i < tops.length; i++){
-            alert("compare " + tops[i] + " and " + mytop);
-            if(mytop === tops[i]){
-              alert(tops[i] + " already in list: " + inArray);
-            var inArray = true;
-            }else{
+            for(var i = 0; i < tops.length; i++){
+              //alert("Compare: " + tops[i] + " and " + mytop);
+              if(mytop === tops[i]){
+                inArray = true;
+                //alert("(" + inArray + "): "+mytop + " already in list");
+              }else{
+                //alert("(" + inArray + "): "+ mytop + " is not equal to " +tops[i]);
+              }
             }
-          }
-          alert(tops[i] + " already in list: " + inArray);
-          if(inArray = false){
+            if(inArray === false){
+              tops = tops.concat(mytop);
+                //alert("conclusion: " +mytop + " is not in list");
+            }else{
+                //alert("conclusion: " +mytop + " is in list");
+            }
+            ACTUAL = tops;
+          };
+          fn('blue shirt');
+            //alert("Tops array = " + ACTUAL);
+          expect(ACTUAL).to.eql(['white shirt', 'blue shirt']);
+        });
+
+      it('a new top is added to the array of tops', function () {
+        var fn = function (mytop) {
+          var inArray = false;
+          var tops = ['white shirt', 'blue shirt'];
+          for(var i = 0; i < tops.length; i++){
+             //alert("Compare: " + tops[i] + " and " + mytop);
+             if(mytop === tops[i]){
+               inArray = true;
+               //alert("(" + inArray + "): "+mytop + " already in list");
+             }else{
+               //alert("(" + inArray + "): "+ mytop + " is not equal to " +tops[i]);
+             }
+           }
+          if(inArray === false){
             tops = tops.concat(mytop);
+            //alert("conclusion: " +mytop + " is not in list");
+          }else{
+            //alert("conclusion: " +mytop + " is in list");
           }
           ACTUAL = tops;
         };
         fn('coat');
-        alert(ACTUAL);
+        //alert("Tops array = " + ACTUAL);
         expect(ACTUAL).to.eql(['white shirt', 'blue shirt', 'coat' ]);
       });
+
+      it('a new top is added to the array of tops with foreach', function () {
+        var fn = function (mytop) {
+          var mytop = mytop;
+          var inArray = false;
+          var tops = ['white shirt', 'blue shirt'];
+          tops.forEach(function(top){
+             //alert("Compare: " + top + " and " + mytop);
+             if(mytop === top){
+               inArray = true;
+               //alert("(" + inArray + "): "+mytop + " already in list");
+             }else{
+               //alert("(" + inArray + "): "+ mytop + " is not equal to " +top);
+             }
+           });
+          if(inArray === false){
+            tops = tops.concat(mytop);
+            //alert("conclusion: " +mytop + " is not in list");
+          }else{
+            //alert("conclusion: " +mytop + " is in list");
+          }
+          ACTUAL = tops;
+        };
+        fn('coat');
+
+        //alert("Tops array = " + ACTUAL);
+        expect(ACTUAL).to.eql(['white shirt', 'blue shirt', 'coat' ]);
+      });
+
+      it('add top to tops array, bottom to bottoms array', function () {
+        var topArray = function (n) {
+          var mytop = n;
+          var inArray = false;
+          var tops = ['white shirt', 'blue shirt'];
+          tops.forEach(function(top){
+             //alert("Compare: " + top + " and " + mytop);
+             if(mytop === top){
+               inArray = true;
+               //alert("(" + inArray + "): "+mytop + " already in list");
+             }else{
+               //alert("(" + inArray + "): "+ mytop + " is not equal to " +top);
+             }
+           });
+          if(inArray === false){
+            tops = tops.concat(mytop);
+            //alert("conclusion: " +mytop + " is not in list");
+          }else{
+            //alert("conclusion: " +mytop + " is in list");
+          }
+          ACTUAL = tops;
+        };
+        var bottomArray = function (n) {
+          var myBottom = n;
+          var inArray = false;
+          var bottoms = ['pants', 'skirt'];
+          bottoms.forEach(function(bottom){
+             //alert("Compare: " + bottom + " and " + myBottom);
+             if(myBottom === bottom){
+               inArray = true;
+               //alert("(" + inArray + "): "+myBottom + " already in list");
+             }else{
+               //alert("(" + inArray + "): "+ myBottom + " is not equal to " + bottom);
+             }
+           });
+          if(inArray === false){
+            bottoms = bottoms.concat(myBottom);
+            //alert("conclusion: " +myBottom + " is not in list");
+          }else{
+            //alert("conclusion: " +myBottom + " is in list");
+          }
+          ACTUAL = bottoms;
+        };
+        var fn = function(n, func){
+          return func(n);
+        };
+        fn('coat', topArray);
+        //alert("Array = " + ACTUAL);
+        expect(ACTUAL).to.eql(['white shirt', 'blue shirt', 'coat' ]);
+        fn('shorts', bottomArray);
+        //alert("Array = " + ACTUAL);
+        expect(ACTUAL).to.eql(['pants', 'skirt', 'shorts' ]);
+
+      });
+
+      it('display tops object', function () {
+        var fn = function(n) {
+          var mytop = n;
+          var inArray = false;
+          var tops = { topslist: 'white shirt'};
+          alert(inArray);
+        fn('coat');
+        expect(ACTUAL).to.eql(['white shirt', 'blue shirt', 'coat' ]);
+        }
+      };
+
 
       it('a function has access to the variables contained within the same scope that function was created in', function () {
         var name = 'outer';
