@@ -63,8 +63,50 @@
           expect(ACTUAL).to.eql(['white shirt', 'blue shirt']);
         });
 
+
       it('a new top is added to the array of tops', function () {
         var fn = function (mytop) {
+
+          var age,
+  topMatchByName = {
+    find: function(mytop) {
+      return this[mytop] || [];
+    }
+  },
+  i,
+  n;
+
+for (i = 0, n = tops.length; i < n; i++) {
+  mytop = tops[i].mytop;
+  topMatchByName[mytop] = topMatchByName[mytop] || [];
+  topMatchByName[mytop].push(tops[i]);
+}
+
+          var inArray = false;
+          var tops = ['white shirt', 'blue shirt'];
+          for(var i = 0; i < tops.length; i++){
+             //alert("Compare: " + tops[i] + " and " + mytop);
+             if(mytop === tops[i]){
+               inArray = true;
+               //alert("(" + inArray + "): "+mytop + " already in list");
+             }else{
+               //alert("(" + inArray + "): "+ mytop + " is not equal to " +tops[i]);
+             }
+           }
+          if(inArray === false){
+            tops = tops.concat(mytop);
+            //alert("conclusion: " +mytop + " is not in list");
+          }else{
+            //alert("conclusion: " +mytop + " is in list");
+          }
+          ACTUAL = tops;
+        };
+        fn('coat');
+        //alert("Tops array = " + ACTUAL);
+        expect(ACTUAL).to.eql(['white shirt', 'blue shirt', 'coat' ]);
+      });
+
+      it('a new top is added to the array of tops', function () {
           var inArray = false;
           var tops = ['white shirt', 'blue shirt'];
           for(var i = 0; i < tops.length; i++){
@@ -94,6 +136,7 @@
           var mytop = mytop;
           var inArray = false;
           var tops = ['white shirt', 'blue shirt'];
+          //tops = tops || [];
           tops.forEach(function(top){
              //alert("Compare: " + top + " and " + mytop);
              if(mytop === top){
@@ -173,9 +216,19 @@
       });
 
       it('obtain property of tops object', function () {
+        var fn = function() {
+          var tops = {
+            topslist: 'white shirt'
+            };
+          ACTUAL = tops.topslist;
+        };
+        fn();
+        expect(ACTUAL).to.eql('white shirt');
+      });
+
+      it('add second value to existing tops object property', function () {
         var fn = function(n) {
           var mytop = n;
-          var inArray = false;
           var tops = { topslist: 'white shirt'};
           ACTUAL = tops.topslist;
         };
@@ -185,7 +238,12 @@
 
     });
 
-      describe('Function Exercises', function () {
+
+
+
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    describe('Function Exercises', function () {
 
           var ACTUAL;
           // This resets the value of ACTUAL (to null) before each test is run
