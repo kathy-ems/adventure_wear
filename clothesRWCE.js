@@ -8,7 +8,7 @@
         ACTUAL = null;
       });
 
-      it('a top can be added to a new array', function () {
+      it('1. a top can be added', function () {
         var fn = function (mytop) {
           var tops = mytop;
           ACTUAL = tops;
@@ -17,7 +17,7 @@
         expect(ACTUAL === 'shirt').to.be.true;
       });
 
-      it('a top can be added to an exisiting array', function () {
+      it('2. a top can be added to an exisiting array', function () {
         var fn = function (mytop) {
           var tops = ['white shirt'];
           tops = tops.concat(mytop);
@@ -27,7 +27,7 @@
         expect(ACTUAL).to.include('blue shirt');
       });
 
-      it('a second top can be added to an array', function () {
+      it('3. a second top can be added to an array', function () {
         var fn = function (mytop) {
           var tops = ['white shirt'];
           tops = tops.concat(mytop);
@@ -37,7 +37,7 @@
         expect(ACTUAL).to.eql(['white shirt', 'blue shirt' ]);
       });
 
-      it('a top already in array is not added', function () {
+      it('4. a top already in array is not added', function () {
         var fn = function (mytop) {
           var tops = ['white shirt', 'blue shirt'];
           var inArray = false;
@@ -64,76 +64,63 @@
         });
 
 
-      it('a new top is added to the array of tops', function () {
-        var fn = function (mytop) {
+        it('5. a new top is added to the array of tops', function () {
+          var fn = function (mytop) {
+            var inArray = false;
+            var tops = ['white shirt', 'blue shirt'];
 
-          var age,
-  topMatchByName = {
-    find: function(mytop) {
-      return this[mytop] || [];
-    }
-  },
-  i,
-  n;
 
-for (i = 0, n = tops.length; i < n; i++) {
-  mytop = tops[i].mytop;
-  topMatchByName[mytop] = topMatchByName[mytop] || [];
-  topMatchByName[mytop].push(tops[i]);
-}
-
-          var inArray = false;
-          var tops = ['white shirt', 'blue shirt'];
-          for(var i = 0; i < tops.length; i++){
-             //alert("Compare: " + tops[i] + " and " + mytop);
-             if(mytop === tops[i]){
-               inArray = true;
-               //alert("(" + inArray + "): "+mytop + " already in list");
-             }else{
-               //alert("(" + inArray + "): "+ mytop + " is not equal to " +tops[i]);
+            for(var i = 0; i < tops.length; i++){
+               //alert("Compare: " + tops[i] + " and " + mytop);
+               if(mytop === tops[i]){
+                 inArray = true;
+                 //alert("(" + inArray + "): "+mytop + " already in list");
+               }else{
+                 //alert("(" + inArray + "): "+ mytop + " is not equal to " +tops[i]);
+               }
              }
-           }
-          if(inArray === false){
-            tops = tops.concat(mytop);
-            //alert("conclusion: " +mytop + " is not in list");
-          }else{
-            //alert("conclusion: " +mytop + " is in list");
-          }
-          ACTUAL = tops;
-        };
-        fn('coat');
-        //alert("Tops array = " + ACTUAL);
-        expect(ACTUAL).to.eql(['white shirt', 'blue shirt', 'coat' ]);
-      });
+            if(inArray === false){
+              tops = tops.concat(mytop);
+              //alert("conclusion: " +mytop + " is not in list");
+            }else{
+              //alert("conclusion: " +mytop + " is in list");
+            }
+            ACTUAL = tops;
+          };
+          fn('coat');
+          //alert("Tops array = " + ACTUAL);
+          expect(ACTUAL).to.eql(['white shirt', 'blue shirt', 'coat' ]);
+        });
 
-      it('a new top is added to the array of tops', function () {
-          var inArray = false;
-          var tops = ['white shirt', 'blue shirt'];
-          for(var i = 0; i < tops.length; i++){
-             //alert("Compare: " + tops[i] + " and " + mytop);
-             if(mytop === tops[i]){
-               inArray = true;
-               //alert("(" + inArray + "): "+mytop + " already in list");
-             }else{
-               //alert("(" + inArray + "): "+ mytop + " is not equal to " +tops[i]);
+        it('6. a new top is added to the array of tops', function () {
+          var fn = function (mytop) {
+            var inArray = false;
+            var tops = ['white shirt', 'blue shirt'];
+            for(var i = 0; i < tops.length; i++){
+               //alert("Compare: " + tops[i] + " and " + mytop);
+               top = tops[i];
+               if(mytop === top[i]){
+                 inArray = true;
+                 //alert("(" + inArray + "): "+mytop + " already in list");
+               }else{
+                 //alert("(" + inArray + "): "+ mytop + " is not equal to " +tops[i]);
+               }
              }
-           }
-          if(inArray === false){
-            tops = tops.concat(mytop);
-            //alert("conclusion: " +mytop + " is not in list");
-          }else{
-            //alert("conclusion: " +mytop + " is in list");
-          }
-          ACTUAL = tops;
-        };
-        fn('coat');
-        //alert("Tops array = " + ACTUAL);
-        expect(ACTUAL).to.eql(['white shirt', 'blue shirt', 'coat' ]);
-      });
+            if(inArray === false){
+              tops = tops.concat(mytop);
+              //alert("conclusion: " +mytop + " is not in list");
+            }else{
+              //alert("conclusion: " +mytop + " is in list");
+            }
+            ACTUAL = tops;
+          };
+          fn('coat');
+          //alert("Tops array = " + ACTUAL);
+          expect(ACTUAL).to.eql(['white shirt', 'blue shirt', 'coat' ]);
+        });
 
-      it('a new top is added to the array of tops with higher order function, foreach', function () {
+      it('7. a new top is added to the array of tops with higher order function, foreach', function () {
         var fn = function (mytop) {
-          var mytop = mytop;
           var inArray = false;
           var tops = ['white shirt', 'blue shirt'];
           //tops = tops || [];
@@ -160,7 +147,7 @@ for (i = 0, n = tops.length; i < n; i++) {
         expect(ACTUAL).to.eql(['white shirt', 'blue shirt', 'coat' ]);
       });
 
-      it('add top to tops array, bottom to bottoms array', function () {
+      it('8. add top to tops array, bottom to bottoms array', function () {
         var topArray = function (n) {
           var mytop = n;
           var inArray = false;
@@ -215,190 +202,121 @@ for (i = 0, n = tops.length; i < n; i++) {
 
       });
 
-      it('obtain property of tops object', function () {
+      it('9. obtain property of wardrobe object', function () {
         var fn = function() {
-          var tops = {
-            topslist: 'white shirt'
+          var wardrobe = {
+            topslist: ['white shirt', 'blue shirt'],
+            bottomslist: ['pants', 'skirt']
             };
-          ACTUAL = tops.topslist;
+          ACTUAL = wardrobe.topslist;
         };
         fn();
-        expect(ACTUAL).to.eql('white shirt');
+        expect(ACTUAL).to.eql(['white shirt', 'blue shirt' ]);
       });
 
-      it('add second value to existing tops object property', function () {
+      it('10. add second new top to existing wardrobe object', function () {
         var fn = function(n) {
-          var mytop = n;
-          var tops = { topslist: 'white shirt'};
-          ACTUAL = tops.topslist;
+          newTop = n;
+          var wardrobe = {
+            topslist: ['white shirt', 'blue shirt'],
+            bottomslist: ['pants', 'skirt']
+            };
+            //alert(wardrobe.topslist);
+            wardrobe.topslist = wardrobe.topslist.concat(newTop);
+            //alert(wardrobe.topslist);
+            //alert(newTop);
+          ACTUAL = wardrobe.topslist;
         };
         fn('coat');
-        expect(ACTUAL).to.eql('white shirt');
+        expect(ACTUAL).to.eql(['white shirt', 'blue shirt', 'coat' ]);
+      });
+
+      it('11. add new top & bottom to existing wardrobe object with callback function forEach', function () {
+        var inArray = false;
+        var tops = function(n) {
+          newTop = n;
+          var wardrobe = {
+            topslist: ['white shirt', 'blue shirt']
+            };
+            wardrobe.topslist.forEach(function(top){
+               if(newTop === top){
+                 inArray = true;
+               }
+             });
+            if(inArray === false){
+              wardrobe.topslist = wardrobe.topslist.concat(newTop);
+            }
+          ACTUAL = wardrobe.topslist;
+        };
+        var bottoms = function(n) {
+          newBottom = n;
+          var wardrobe = {
+            bottomslist: ['pants', 'skirt']
+            };
+            wardrobe.bottomslist.forEach(function(bottom){
+              if(newBottom === bottom){
+                inArray = true;
+              }
+            });
+            if(inArray === false){
+            wardrobe.bottomslist = wardrobe.bottomslist.concat(newBottom);
+          }
+          ACTUAL = wardrobe.bottomslist;
+        };
+
+        var fn = function(n, func){
+          return func(n);
+        };
+        fn('coat', tops);
+        expect(ACTUAL).to.eql(['white shirt', 'blue shirt', 'coat' ]);
+        fn('shorts', bottoms);
+        expect(ACTUAL).to.eql(['pants', 'skirt', 'shorts' ]);
+      });
+
+      it('12. return list of wardrobe', function () {
+        var allWardrobe = function(){
+          var myWardrobe;
+          var allBottoms = [];
+          var allTops = [];
+          var allItems = [];
+          var wardrobe = {
+            topslist: ['white shirt', 'blue shirt'],
+            bottomslist: ['pants', 'skirt']
+            };
+          var tops = function() {
+            //alert("inside tops function");
+              wardrobe.topslist.forEach(function(top){
+                var str = top;
+                //alert(str);
+                //alert(top);
+                //alert(index + 1 + ". " + top);
+                allTops = allTops.concat(str);
+              });
+              return allTops;
+              alert(allTops);
+          };
+          var bottoms = function() {
+              wardrobe.bottomslist.forEach(function(bottom){
+                var str = bottom;
+                allBottoms = allBottoms.concat(str);
+              });
+              return allBottoms;
+          };
+          tops();
+          bottoms();
+          myWardrobe = allTops.concat(allBottoms);
+          myWardrobe.forEach(function(article, index){
+            var str = " " + (index + 1) + ". " + article;
+            allItems = allItems.concat(str);
+          });
+          alert("My Wardrobe: " + allItems);
+          ACTUAL = allItems;
+        };
+
+        allWardrobe();
+        expect(ACTUAL).to.eql(['white shirt', 'blue shirt', 'coat' ]);
       });
 
     });
-
-
-
-
-
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    describe('Function Exercises', function () {
-
-          var ACTUAL;
-          // This resets the value of ACTUAL (to null) before each test is run
-          beforeEach(function () {
-            ACTUAL = null;
-          });
-
-      it('a function has access to the variables contained within the same scope that function was created in', function () {
-        var name = 'outer';
-        var fn = function () {
-          ACTUAL = name;
-        };
-        fn();
-        expect(ACTUAL === '???').to.be.true;
-      });
-
-      it('a function\'s local scope variables are not available anywhere outside that function', function () {
-        var firstFn = function () {
-          var localToFirstFn = 'inner';
-        };
-        firstFn();
-        expect(function () {
-          ACTUAL = localToFirstFn;
-        }).to.throw();
-        expect(ACTUAL === "???").to.be.true;
-      });
-
-      it('a function\'s local scope variables are not available anywhere outside that function, regardless of the context it\'s called in', function () {
-        var firstFn = function () {
-          var localToFirstFn = 'first';
-          // Although false, it might seem reasonable to think that the secondFn (which mentions the localToFirstFn variable), should have access to the localToFirstFn variable, since it's being called here from within the scope where that variable is declared.
-          secondFn();
-        };
-        var secondFn = function () {
-          ACTUAL = localToFirstFn;
-        };
-        expect(function () {
-          // of course, calling the secondFn should throw an error in this case, since secondFn does not have access to the localToFirstFn variable
-          secondFn();
-        }).to.throw();
-        expect(function () {
-          // in addition, calling the firstFn (which in turn calls the secondFn) should also throw, since it the calling context of secondFn has no influence over its scope access rules
-          firstFn();
-        }).to.throw();
-        expect(ACTUAL === '???').to.be.true;
-      });
-
-      it('if an inner and an outer variable share the same name, and the name is referenced in the inner scope, the inner scope variable masks the variable from the outer scope with the same name. This renders the outer scope variables inaccassible from anywhere within the inner function block', function () {
-        var sameName = 'outer';
-        var fn = function () {
-          var sameName = 'inner';
-          ACTUAL = sameName;
-        };
-        fn();
-        expect(ACTUAL === '???').to.be.true;
-      });
-
-      it('if an inner and an outer variable share the same name, and the name is referenced in the outer scope, the outer value binding will be used', function () {
-        var sameName = 'outer';
-        var fn = function () {
-          var sameName = 'inner';
-        };
-        fn();
-        ACTUAL = sameName;
-        expect(ACTUAL === '???').to.be.true;
-      });
-
-      it('a new variable scope is created for every call to a function, as exemplified with a counter', function () {
-        var fn = function () {
-          // the `||` symbol here is being used to set a default value for innerCounter. If innerCounter already contains a truthy value, then the value in that variable will be unchanged. If it is falsey however (such as if it were completely uninitialized), then this line will set it to the default value of 10.
-          var innerCounter = innerCounter || 10;
-          innerCounter = innerCounter + 1;
-          ACTUAL = innerCounter;
-        };
-
-        fn();
-        expect(ACTUAL === '???').to.be.true;
-        fn();
-        expect(ACTUAL === '???').to.be.true;
-      });
-
-      it('a new variable scope is created for each call to a function, as exemplified with uninitialized string variables', function () {
-        // this is a longer form of the same observation as above, using strings in stead of numbers.
-        var fn = function () {
-          var localVariable;
-          if (localVariable === undefined) {
-            // the variable will be initialized for the first time during this call to fn
-            ACTUAL = 'alpha';
-          } else if (localVariable === 'initialized') {
-            // the variable has already been initialized by a previous call to fn
-            ACTUAL = 'omega';
-          }
-          // now that actual has been set, we will initialize localVariable to refer to a string
-          localVariable = 'initialized';
-        };
-
-        fn();
-        expect(ACTUAL === '???').to.be.true;
-        fn();
-        expect(ACTUAL === '???').to.be.true;
-      });
-
-      it('an inner function can access both its local scope variables and variables in its containing scope, provided the variables have different names', function () {
-        var outerName = 'outer';
-        var fn = function () {
-          var innerName = 'inner';
-          ACTUAL = innerName + outerName;
-        };
-        fn();
-        expect(ACTUAL === '???').to.be.true;
-      });
-
-      it('between calls to an inner function, that inner function retains access to a variable in an outer scope. Modifying those variables has a lasting effect between calls to the inner function.', function () {
-        var outerCounter = 10;
-
-        var fn = function () {
-          outerCounter = outerCounter + 1;
-          ACTUAL = outerCounter;
-        };
-
-        fn();
-        expect(ACTUAL === '???').to.be.true;
-        fn();
-        expect(ACTUAL === '???').to.be.true;
-      });
-
-      it('the rule about retaining access to variables from an outer scope still applies, even after the outer function call (that created the outer scope) has returned', function () {
-        var outerFn = function () {
-          // NOTE: the contents of this function is the same as the entire body of the previous test
-          var counterInOuterScope = 10;
-
-          var innerIncrementingFn = function () {
-            counterInOuterScope = counterInOuterScope + 1;
-            ACTUAL = counterInOuterScope;
-          };
-
-          innerIncrementingFn();
-          expect(ACTUAL === '???').to.be.true;
-          innerIncrementingFn();
-          expect(ACTUAL === '???').to.be.true;
-          // Here, we retain a reference to the newly created inner function for later, by assigning it to the global scope (window)
-          window.retainedInnerFn = innerIncrementingFn;
-
-        };
-
-        // before we run outerFn, there will be no innerFn exported to the global scope
-        expect(window.retainedInnerFn).to.equal.undefined;
-        // running this outer function should have the same effect as running the whole previous test, with the addition of placing the innerFn somewhere that we can reach it after outerFn has returned
-        outerFn();
-        expect(window.retainedInnerFn).to.be.a('function');
-        // even though the outerFn has returned once the only call to it was completed a couple of lines above, the inner function remains available in the global scope, and still has access to the variables of that containing scope where it was first created.
-        window.retainedInnerFn();
-        expect(ACTUAL === '???').to.be.true;
-      });
-
-  });
 
 })();
