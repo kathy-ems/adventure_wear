@@ -309,12 +309,13 @@
             var str = " " + (index + 1) + ". " + article;
             allItems = allItems.concat(str);
           });
-          alert("My Wardrobe: " + allItems);
+          //alert("My Wardrobe: " + allItems);
           ACTUAL = allItems;
+          //alert(ACTUAL);
         };
 
         allWardrobe();
-        expect(ACTUAL).to.eql(['white shirt', 'blue shirt', 'coat' ]);
+        expect(ACTUAL).to.eql([' 1. white shirt', ' 2. blue shirt', ' 3. pants', ' 4. skirt' ]);
       });
 
     });
