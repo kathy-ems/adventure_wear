@@ -1,15 +1,45 @@
-<section class="home-controller" ng-app="express-node-simple">
-  <div class="container">
-    <div class="row">
-      <div class="logo-cont col-md-12">
-        Booyah!
+<!DOCTYPE html>
+<html ng-app="adventure-wear">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>express-node-simple</title>
+    <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/ >
+    <link rel="stylesheet" href="/bootstrap/css/amelia/theme/bootstrap.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+  </head>
+  <body>
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+      <div class="navbar-header"><a href="/" class="navbar-brand">express-node-simple</a>
+        <button type="button" data-toggle="collapse" data-target="#navbar-main" class="navbar-toggle">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 list-group-item" ng-repeat="lang in data.languages">
-        <h4>
-          <p>{{ lang.name }}</p>
+      <div id="navbar-main" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/#about">About</a></li>
+        </ul>
       </div>
     </div>
   </div>
-</section>
+  <div class="container">
+    <div ng-repeat="wearables in wardrobe">
+      <p>For this temperature: {{ wearables.temperature }} </p>
+      <p>Wear these!
+        </br> Top: {{ wearables.top }}
+        </br>Bottom:  {{ wearables.bottom }}
+      </p>
+    <div ng-view></div>
+    <div ng-include src="'wardrobe.tpl.html'" ng-controller="wardrobeController"></div>
+    <footer id="footer">
+      <footer></footer>
+    </footer>
+  </div>
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/angular-route/angular-route.js"></script>
+  <script src="/javascripts/templates/templates.js"></script>
+  <script src="/javascripts/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+var mainController = function ($scope) {};
