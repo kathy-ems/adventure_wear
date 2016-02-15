@@ -1,32 +1,4 @@
-<!DOCTYPE html>
-<html ng-app="adventure-wear">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adventure Wear</title>
-    <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/ >
-    <link rel="stylesheet" href="/bootstrap/css/amelia/theme/bootstrap.css">
-    <link rel="stylesheet" href="/stylesheets/style.css">
-  </head>
-  <body>
-    <div class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-      <div class="navbar-header"><a href="/" class="navbar-brand">Adventure Wear</a>
-        <button type="button" data-toggle="collapse" data-target="#navbar-main" class="navbar-toggle">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-      <div id="navbar-main" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="/#about">About</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div ng-view></div>
-  </div>
+<div ng-app="adventure-wear">
   <div ng-repeat="wearables in data.wardrobe" class="container">
     <p>For this temperature: {{ wearables.temperature }} </p>
     <p>Wear these! </p>
@@ -34,14 +6,4 @@
     <p>Bottom:  {{ wearables.bottom }}</p>
     </p>
   </div>
-  <div ng-include src="'wardrobe.tpl.html'" ng-controller="wardrobeController"></div>
-    <footer id="footer">
-      <footer></footer>
-    </footer>
-  </div>
-  <script src="/bower_components/angular/angular.js"></script>
-  <script src="/bower_components/angular-route/angular-route.js"></script>
-  <script src="/javascripts/templates/templates.js"></script>
-  <script src="/javascripts/app.js"></script>
-</body>
-</html>
+</div>
