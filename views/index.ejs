@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/ >
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  </head>
+  <body ng-app="express-node-simple">
+    <simple-main-nav></simple-main-nav>
+    <div class="main-container">
+      <div ng-view class="view-animation"></div>
+    </div>
+    <footer id="footer">
+      <div class="footer-bar">
+        <div class="container">
+          Footer
+        </div>
+      </div>
+    </footer>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-route/angular-route.js"></script>
+    <script src="/javascripts/templates/templates.js"></script>
+    <script src="/javascripts/app.js"></script>
+  </body>
+</html>
