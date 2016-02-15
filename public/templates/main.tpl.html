@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="express-node-simple">
+<html ng-app="adventure-wear">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>express-node-simple</title>
@@ -25,6 +25,12 @@
     </div>
   </div>
   <div class="container">
+    <div ng-repeat="wearables in wardrobe">
+      <p>For this temperature: {{ wearables.temperature }} </p>
+      <p>Wear these!
+        </br> Top: {{ wearables.top }}
+        </br>Bottom:  {{ wearables.bottom }}
+      </p>
     <div ng-view></div>
     <div ng-include src="'wardrobe.tpl.html'" ng-controller="wardrobeController"></div>
     <footer id="footer">
