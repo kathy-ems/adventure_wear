@@ -1,6 +1,6 @@
 (function () {
 
-    angular.module('adventure-wear', ['ngAnimate', 'ngRoute'])
+    angular.module('adventure-wear', ['ngAnimate', 'ngRoute']);
 
     function config ($routeProvider) {
       $routeProvider
@@ -9,9 +9,7 @@
           controller: 'mainController',
           controllerAs: 'vm'
         })
-        .otherwise({
-          redirectTo: '/'
-        });
+        .otherwise({ redirectTo: '/' });
         // use the HTML5 History API
         $locationProvider.html5Mode(true);
       }
