@@ -1,4 +1,4 @@
-var homeCtrl = function ($scope) {
+var mainController = function ($scope) {
   $scope.data = {
     languages: [{
       name: 'VBScript',

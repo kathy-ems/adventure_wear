@@ -1,4 +1,8 @@
 // var routes    = require('./routes/routes.js');
+
+app.use(function(req, res) {
+  res.sendfile(path.join(__dirname, 'public', 'templates', 'main.tpl.html'));
+});
 //
 // (function () {
 

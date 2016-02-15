@@ -34,6 +34,12 @@ app.use(parser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public', 'templates')));
+
+// ENTRY PAGE!!! 
+app.use(function(req, res) {
+   res.sendfile(path.join(__dirname, 'public', 'templates', 'main.tpl.html'));
+ });
+
 // app.use('/bower_components', express.static(__dirname + '/bower_components'));
 
 // Set up our routes
