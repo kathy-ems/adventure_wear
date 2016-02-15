@@ -1,4 +1,5 @@
-var mainController = function ($scope) {
+(function () {
+  var mainController = function ($scope) {
   $scope.data = {
     languages: [{
       name: 'VBScript',
@@ -47,3 +48,5 @@ var mainController = function ($scope) {
     }]
   }
 };
+
+  })();

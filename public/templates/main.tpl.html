@@ -26,10 +26,9 @@
   </div>
   <div class="container">
     <div ng-view></div>
+    <div ng-include src="'wardrobe.tpl.html'" ng-controller="wardrobeController"></div>
     <footer id="footer">
-      <div class="row footer-bar">
-        <div class="col-xs-12"><small>Footer</small></div>
-      </div>
+      <footer></footer>
     </footer>
   </div>
   <script src="/bower_components/angular/angular.js"></script>

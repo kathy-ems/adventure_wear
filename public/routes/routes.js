@@ -4,6 +4,10 @@ module.exports = function($routeProvider, $locationProvider){
       templateUrl: '../public/templates/main.tpl.html',
       controller: 'mainController'
     })
+    .when('/wardrobe', {
+      templateUrl: '../public/templates/wardrobe.tpl.html',
+      controller: 'wardrobeController'
+    })
     .otherwise({
       redirectTo:'/'
     });

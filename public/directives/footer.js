@@ -1,4 +1,4 @@
-(function () {
+(function (express-node-simple) {
   angular
     .module('express-node-simple')
     .directive('footer', footer);
