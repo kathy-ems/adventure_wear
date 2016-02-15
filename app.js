@@ -23,8 +23,8 @@ app.set('port', 3000);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-// app.set('view engine', 'ejs');
+// app.set('view engine', 'jade');
+app.set('view engine', 'ejs');
 
 
 // Logging and parsing
@@ -35,10 +35,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public', 'templates')));
 
-// ENTRY PAGE!!! 
-app.use(function(req, res) {
-   res.sendfile(path.join(__dirname, 'public', 'templates', 'main.tpl.html'));
- });
+// // ENTRY PAGE!!!
+// app.use(function(req, res) {
+//    res.sendfile(path.join(__dirname, 'public', 'templates', 'main.tpl.html'));
+//  });
 
 // app.use('/bower_components', express.static(__dirname + '/bower_components'));
 
