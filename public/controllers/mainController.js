@@ -14,8 +14,6 @@
       strapline: 'Find places to work with wifi near you!'
     };
 
-    vm.getData = function ($scope) {
-      $scope.data = wardrobeData();
-    };
+    $scope.data = wardrobeData();
   };
 })();
