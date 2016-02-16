@@ -7,13 +7,9 @@ mainController.$inject = ['$scope'];
 function mainController ( $scope ) {
   $scope.data = {};
   $scope.data.wardrobe = {};
-  $scope.data.tagline = "Your Adventure Awaits!";
-
-  var vm = this;
-
-  vm.pageHeader = {
-    title: 'adventurewear',
-    strapline: 'Pick an outfit!'
+  $scope.data.pageHeader = {
+    title: 'Adventure Wear!',
+    tagline: "Pick an outfit! Your Adventure Awaits!"
   };
 
   $scope.data.wardrobe = {
