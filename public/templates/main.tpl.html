@@ -11,8 +11,8 @@
 <section>
 <div class="row">
   <div class="col-xs-12 col-sm-8">
-    <div class="col-xs-12 list-group-item" ng-repeat="item in data.wardrobe.wardrobe | filter:search | orderBy:'temperature' track by $index">
-      <h4>For {{ item.activity }} on a {{item.conditions}} day  @ {{ item.temperature }} degrees (Humidity: {{ item.humidity }}) </h4>
+    <div class="col-xs-12 list-group-item" ng-repeat="item in data.wardrobe.wardrobe | filterTemp:search | orderBy:'temperature' track by $index">
+      <h4>For {{ item.activity }} on a {{item.conditions }} day  @ {{ item.temperature }} degrees (Humidity: {{ item.humidity }}) </h4>
       <p>Wear these!
         <ul>
         <li>Top: {{ item.top }} </li>
