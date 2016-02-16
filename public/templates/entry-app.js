@@ -2,7 +2,7 @@ var app = angular.module('adventurewear', [
   'ngRoute',
   'adventurewear.main',
   'adventurewear.footer',
-  'adventureware.wardrobedata'
+  'adventurewear.wardrobedata'
 ]);
 
   app.config(function($routeProvider) {
@@ -13,7 +13,7 @@ var app = angular.module('adventurewear', [
     })
     .otherwise({
       redirectTo: '/'
-    });
+    })
   });
 
 //

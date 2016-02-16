@@ -1,5 +1,5 @@
 angular
-  .module('adventurewear.main')
+  .module('adventurewear.main', [])
     .controller('mainController', mainController);
 
 mainController.$inject = ['$scope', wardrobeData];

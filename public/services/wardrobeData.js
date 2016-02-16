@@ -1,5 +1,5 @@
 angular
-  .module('adventurewear.wardrobedata')
+  .module('adventurewear.wardrobedata', [])
     .service('wardrobeData', wardrobeData);
 
   wardrobeData.$inject = ['$http'];
