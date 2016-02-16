@@ -10,8 +10,8 @@ var parser = require('body-parser');
 
 
 // Routes
-var routes = require('./app_server/routes/index');
-var users = require('./app_server/routes/users');
+var routes = require('./routes/index');
+var users = require('./routes/users');
 
 // API Routes
 var routesApi = require('./app_api/routes/index');
@@ -23,7 +23,6 @@ app.set('port', 3000);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'jade');
 app.set('view engine', 'ejs');
 
 
@@ -33,7 +32,7 @@ app.use(parser.json());
 app.use(parser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'public', 'templates')));
+// app.use(express.static(path.join(__dirname, 'public', 'templates')));
 
 // // ENTRY PAGE!!!
 // app.use(function(req, res) {
