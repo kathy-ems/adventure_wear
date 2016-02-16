@@ -25,8 +25,10 @@ function mainController ( $scope ) {
   var vm = this;
 
   $scope.data.pageHeader = {
-    title: 'Adventure Wear!',
-    tagline: "Pick an outfit! Your Adventure Awaits!"
+    title: 'Adventure Wear',
+    tagline: "Your Adventure Awaits!",
+    subtagline: "Determine the best outfit for your next adventure",
+    filterlabel: "... based on this temperature: "
   };
 
   $scope.data.wardrobe = {
