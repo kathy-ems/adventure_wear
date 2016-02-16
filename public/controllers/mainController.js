@@ -2,9 +2,9 @@ angular
   .module('adventurewear.main', [])
     .controller('mainController', mainController);
 
-mainController.$inject = ['$scope', wardrobeData];
+mainController.$inject = ['$scope', WardrobeData];
 
-function mainController ($scope, wardrobeData ) {
+function mainController ($scope, WardrobeData ) {
 
   var vm = this;
 
@@ -13,5 +13,9 @@ function mainController ($scope, wardrobeData ) {
     strapline: 'Pick an outfit!'
   };
 
-  // $scope.data = wardrobeData();
+  $scope.data = [];
+  WardrobeData.getWardrobe().then( function ( resp ) {
+    $scope.data = resp;
+  } );
+  ;
 };

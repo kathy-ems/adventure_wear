@@ -31,9 +31,9 @@ app.use(parser.json());
 app.use(parser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-console.log('DIRNAME:', __dirname, 'JOINED:', path.join(__dirname, '../../bower_components'));
+// console.log('DIRNAME:', __dirname, 'JOINED:', path.join(__dirname, '../../bower_components'));
 
-app.use('/bower_components',  express.static(__dirname + 'public/bower_components'));
+// app.use('/bower_components',  express.static(__dirname + 'public/bower_components'));
 // app.use(express.static(path.join(__dirname, 'public', 'templates')));
 
 // Set up our routes
