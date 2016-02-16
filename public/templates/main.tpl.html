@@ -1,10 +1,9 @@
 <div>
-  <div class="container" >
-    <h4>{{ data.tagline}}</h4>
-    <p>For this temperature:  </p>
+  <div class="container" ng-repeat="item in data.wardrobe.wardrobe">
+    <h4>{{ item.activity }} @ {{ item.temperature }} degrees </h4>
     <p>Wear these! </p>
-    <p>Top:  </p>
-    <p>Bottom:  {{ 9+7 }}</p>
+    <p>Top: {{ item.top }} </p>
+    <p>Bottom:  {{ item.bottom }}</p>
     </p>
   </div>
 </div>
