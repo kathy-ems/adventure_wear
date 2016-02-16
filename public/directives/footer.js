@@ -1,6 +1,6 @@
-(function (express-node-simple) {
+(function (adventurewear) {
   angular
-    .module('express-node-simple')
+    .module('adventurewear')
     .directive('footer', footer);
   function footer () {
     return {

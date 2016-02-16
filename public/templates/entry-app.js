@@ -1,15 +1,28 @@
 var routes    = require('./routes/routes.js');
+var wardrobeData       = require('../services/wardrobeData.js');
+var MainController     = require('../controllers/mainController.js');
+var Footer             = require('../directives/footer.js');
 
-var app = angular.module('adventure-wear', ['ngResource', 'ngRoute', 'ngAnimate']);
+angular.module('adventurewear', ['ngResource', 'ngRoute', 'ngAnimate']);
 
-app.config(['$routeProvider', '$locationProvider', routes]);
+  .config('$routeProvider', '$locationProvider')
+  .when('/', {
+      templateUrl: '../public/templates/index.html',
+      controller: 'mainController'
+    })
+    .when('/wardrobe', {
+      templateUrl: '../public/templates/wardrobe.tpl.html',
+      controller: 'wardrobeController'
+    })
+    .otherwise({
+      redirectTo:'/'
+    });
+  $locationProvider.html5Mode(true);
+}
 
-var wardrobeData       = require('./services/wardrobeData.js');
-var MainController     = require('./controllers/mainController.js');
-var Footer             = require("./directives/footer.js");
 
-app.factory('wardrobeData',['$http', wardrobeData]);
+.factory('wardrobeData',['$http', wardrobeData]);
 
-app.directive('Footer', Footer);
+.directive('Footer', Footer);
 
-app.controller('MainController', ['$scope', MainController]);
+.controller('MainController', ['$scope', MainController]);

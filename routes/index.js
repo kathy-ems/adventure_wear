@@ -8,7 +8,7 @@ var router = express.Router();
 
 /* GET home page. */
 var sendIndex = function(req, res) {
-  res.render('index', { title: 'Adventure Wear' });
+  res.render('index', { title: 'Title: Adventure Wear' });
 };
 
 // var indexPaths = ['/', '/chrome', '/chrome/:product/:recipe/:phase', '/chrome/new', '/cellculture','/cellculture/:product', '/cellculture/lots/:lotNum'];

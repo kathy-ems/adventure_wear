@@ -25,27 +25,20 @@ app.set('port', 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-
 // Logging and parsing
 app.use(logger('dev'));
 app.use(parser.json());
 app.use(parser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+console.log('DIRNAME:', __dirname, 'JOINED:', path.join(__dirname, '../../bower_components'));
+
+app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 // app.use(express.static(path.join(__dirname, 'public', 'templates')));
-
-// // ENTRY PAGE!!!
-// app.use(function(req, res) {
-//    res.sendfile(path.join(__dirname, 'public', 'templates', 'main.tpl.html'));
-//  });
-
-// app.use('/bower_components', express.static(__dirname + '/bower_components'));
 
 // Set up our routes
 app.use('/', routes);
 app.use('/api/', routesApi);
-// app.use('/api', routesApi);
-// app.use('/users', users);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
