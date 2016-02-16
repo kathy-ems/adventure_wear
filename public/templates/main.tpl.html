@@ -1,9 +1,11 @@
 <div>
-  <div  class="container">
-    <p>For this temperature: {{ wearables.temperature }} </p>
-    <p>Wear these! </p>
-    <p>Top: {{ wearables.top }} </p>
-    <p>Bottom:  {{ wearables.bottom }}</p>
+  <div class="container" ng-repeat="item in data.wardrobe.wardrobe">
+    <h4>For {{ item.activity }} on a {{item.conditions}} day  @ {{ item.temperature }} degrees (Humidity: {{ item.humidity }}) </h4>
+    <p>Wear these!
+      <ul>
+      <li>Top: {{ item.top }} </li>
+      <li>Bottom:  {{ item.bottom }}</li>
+      <li>Head Gear: {{ item.head }}</li>
     </p>
   </div>
 </div>
