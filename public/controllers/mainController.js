@@ -8,7 +8,7 @@ angular
         out.push(desiredTemp);
       } else {
         angular.forEach(input, function(wardrobe) {
-          if (wardrobe.temperature > (desiredTemp-10) && wardrobe.temperature < (10 + desiredTemp) ) {
+          if (wardrobe.temperature >= (desiredTemp-10) && wardrobe.temperature <= (desiredTemp + 10) ) {
             out.push(wardrobe);
           }
         })
@@ -22,6 +22,7 @@ mainController.$inject = ['$scope', '$filter'];
 function mainController ( $scope ) {
   $scope.data = {};
   $scope.data.wardrobe = {};
+  var vm = this;
 
   $scope.data.pageHeader = {
     title: 'Adventure Wear!',
