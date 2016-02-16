@@ -1,19 +1,17 @@
-(function () {
-
-  angular
-    .module('adventurewear')
+angular
+  .module('adventurewear.main')
     .controller('mainController', mainController);
 
-  mainController.$inject = ['$scope', wardrobeData];
-  function mainController ($scope, wardrobeData ) {
+mainController.$inject = ['$scope', wardrobeData];
 
-    var vm = this;
+function mainController ($scope, wardrobeData ) {
 
-    vm.pageHeader = {
-      title: 'Adventure-Wear',
-      strapline: 'Find places to work with wifi near you!'
-    };
+  var vm = this;
 
-    $scope.data = wardrobeData();
+  vm.pageHeader = {
+    title: 'adventurewear',
+    strapline: 'Pick an outfit!'
   };
-})();
+
+  // $scope.data = wardrobeData();
+};

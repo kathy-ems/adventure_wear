@@ -1,27 +1,9 @@
-(function() {
-
-  angular
-    .module('adventure-wear')
+angular
+  .module('adventurewear.wardrobedata')
     .service('wardrobeData', wardrobeData);
 
-  wardrobeData.$inject = ['$http', 'authentication'];
-  function wardrobeData ($http, authentication) {
-    // var locationByCoords = function (lat, lng) {
-    //   return $http.get('/api/locations?lng=' + lng + '&lat=' + lat + '&maxDistance=20');
-    // };
-    //
-    // var locationById = function (locationid) {
-    //   return $http.get('/api/locations/' + locationid);
-    // };
-    //
-    // var addReviewById = function (locationid, data) {
-    //   return $http.post('/api/locations/' + locationid + '/reviews', data, {
-    //     headers: {
-    //       Authorization: 'Bearer '+ authentication.getToken()
-    //     }
-    //   });
-    };
-
+  wardrobeData.$inject = ['$http'];
+  function wardrobeData ($http) {
     return {
       // locationByCoords : locationByCoords,
       // locationById : locationById,
@@ -63,6 +45,4 @@
         activity: 'trail running'
       }]
     };
-  }
-
-})();
+};

@@ -1,7 +1,7 @@
 module.exports = function($routeProvider, $locationProvider){
   $routeProvider
     .when('/', {
-      templateUrl: '../public/templates/index.html',
+      templateUrl: '../public/templates/main.tpl.html',
       controller: 'mainController'
     })
     // .when('/wardrobe', {

@@ -35,15 +35,16 @@
   <div class="container">
     <div ng-view></div>
   </div>
-  <div ng-include src="'wardrobe.tpl.html'" ng-controller="wardrobeController"></div>
     <footer id="footer">
       <footer></footer>
     </footer>
   </div>
-  <script src="/public/templates/main.tpl.html"></script>
   <script src="/bower_components/angular/angular.js"></script>
   <script src="/bower_components/angular-route/angular-route.js"></script>
-  <script src="/javascripts/templates/templates.js"></script>
-  <script src="/javascripts/app.js"></script>
-</body>
+  <script src="/controllers/mainController.js"></script>
+  <script src="/directives/footer.js"></script>
+  <script src="/services/wardrobeData.js"></script>
+  <script src="/templates/main.tpl.html"></script>
+  <script src="/templates/entry-app.js"></script>
+  </body>
 </html>

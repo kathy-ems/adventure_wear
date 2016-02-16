@@ -1,6 +1,6 @@
 (function (adventurewear) {
   angular
-    .module('adventurewear')
+    .module('adventurewear.footer')
     .directive('footer', footer);
   function footer () {
     return {

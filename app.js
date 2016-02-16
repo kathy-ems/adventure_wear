@@ -21,9 +21,9 @@ var app = express();
 // Set what we are listening on.
 app.set('port', 3000);
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+// // view engine setup
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'ejs');
 
 // Logging and parsing
 app.use(logger('dev'));
@@ -33,7 +33,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 console.log('DIRNAME:', __dirname, 'JOINED:', path.join(__dirname, '../../bower_components'));
 
-app.use('/bower_components',  express.static(__dirname + '/bower_components'));
+app.use('/bower_components',  express.static(__dirname + 'public/bower_components'));
 // app.use(express.static(path.join(__dirname, 'public', 'templates')));
 
 // Set up our routes
