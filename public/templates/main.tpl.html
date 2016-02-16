@@ -3,23 +3,38 @@
 <section>
   <div class="row">
     <div class="col-xs-12 col-sm-12">
-      <label class="filterlabel" for="filter">Filter by Temperature:</label>
-      <input id="filter" type="text" name="filter" placeholder='filter' class='input' ng-model="search" />
+      <label class="filterlabel" for="filter">Based on this temperature:</label>
+      <input id="filter" type="number" name="filter" placeholder='Enter Temperature' class='input' ng-model="search" />
       <div class="error">{{ vm.message }}</div>
     </div>
 </section>
 <section>
 <div class="row">
   <div class="col-xs-12 col-sm-8">
-    <div class="col-xs-12 list-group-item" ng-repeat="item in data.wardrobe.wardrobe | filter:search | orderBy:'temperature'">
-      <h4>For {{ item.activity }} on a {{item.conditions}} day  @ {{ item.temperature }} degrees (Humidity: {{ item.humidity }}) </h4>
-      <p>Wear these!
-        <ul>
-        <li>Top: {{ item.top }} </li>
-        <li>Bottom:  {{ item.bottom }}</li>
-        <li>Head Gear: {{ item.head }}</li>
-      </p>
-    </div>
+    <span ng-show="search">
+      <h3>Suggestions for today's temp</h3>
+      <div class="col-xs-8 col-sm-6 list-group-item" ng-repeat="item in data.wardrobe.wardrobe | filterTemp:search | orderBy:'temperature' track by $index">
+        <h4>For {{ item.activity }} on a {{item.conditions }} day  @ {{ item.temperature }} degrees (Humidity: {{ item.humidity }}) </h4>
+        <p>Wear these!
+          <ul>
+          <li>Top: {{ item.top }} </li>
+          <li>Bottom:  {{ item.bottom }}</li>
+          <li>Head Gear: {{ item.head }}</li>
+        </p>
+      </div>
+    </span>
+    <span ng-hide="search">
+      <h3> What you've worn before!</h3>
+      <div class="col-xs-8 col-sm-6 list-group-item" ng-repeat="item in data.wardrobe.wardrobe | orderBy:'temperature' track by $index">
+        <h4>For {{ item.activity }} on a {{item.conditions }} day  @ {{ item.temperature }} degrees (Humidity: {{ item.humidity }}) </h4>
+        <p>Wear these!
+          <ul>
+          <li>Top: {{ item.top }} </li>
+          <li>Bottom:  {{ item.bottom }}</li>
+          <li>Head Gear: {{ item.head }}</li>
+        </p>
+      </div>
+    </span>
   </div>
 </div>
 </section>
