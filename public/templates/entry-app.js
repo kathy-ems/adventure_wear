@@ -5,28 +5,28 @@ var app = angular.module('adventurewear', [
   // 'adventurewear.wardrobedata'
 ]);
 
-  app.config(function($routeProvider) {
-    $routeProvider
-    .when('/', {
-      templateUrl: 'index.html',
-      controller: 'mainController'
-    })
-    // .when('/main', {
-    //   templateUrl: 'main.tpl.html',
-    //   controller: 'mainController'
-    // })
-    // .when('/list', {
-    //   templateUrl: 'wardrobe.tpl.html',
-    //   controller: 'wardrobeController'
-    // })
-    // .when('/footer', {
-    //   templateUrl: 'footer.tpl.html',
-    //   controller: 'footerController'
-    // })
-    .otherwise({
-      redirectTo: '/'
-    })
-  });
+  app.config(['$routeProvider',
+    function($routeProvider) {
+      $routeProvider
+      // .when('/', {
+      //   templateUrl: 'index.html'
+      // })
+      .when('/main', {
+        templateUrl: 'templates/main.tpl.html',
+        controller: 'mainController'
+      })
+      // .when('/list', {
+      //   templateUrl: 'wardrobe.tpl.html',
+      //   controller: 'wardrobeController'
+      // })
+      // .when('/footer', {
+      //   templateUrl: 'footer.tpl.html',
+      //   controller: 'footerController'
+      // })
+      .otherwise({
+        redirectTo: '/main'
+      })
+  }]);
 
 //
 // app.factory('wardrobeData',['$http', wardrobeData]);
