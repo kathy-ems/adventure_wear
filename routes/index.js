@@ -12,7 +12,7 @@ var sendIndex = function(req, res) {
 };
 
 // var indexPaths = ['/', '/chrome', '/chrome/:product/:recipe/:phase', '/chrome/new', '/cellculture','/cellculture/:product', '/cellculture/lots/:lotNum'];
-var indexPaths = ['/'];
+var indexPaths = ['/', '/list'];
 
 for (var i = indexPaths.length - 1; i >= 0; i--) {
   var path = indexPaths[i];

@@ -5,7 +5,8 @@ angular
 mainController.$inject = ['$scope'];
 
 function mainController ( $scope ) {
-  $scope.data = [];
+  $scope.data = {};
+  $scope.data.title = "Your Adventure Awaits!";
 
   // var vm = this;
   //
