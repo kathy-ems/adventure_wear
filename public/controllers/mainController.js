@@ -2,20 +2,20 @@ angular
   .module('adventurewear.main', [])
     .controller('mainController', mainController);
 
-mainController.$inject = ['$scope', WardrobeData];
+mainController.$inject = ['$scope'];
 
-function mainController ($scope, WardrobeData ) {
-
-  var vm = this;
-
-  vm.pageHeader = {
-    title: 'adventurewear',
-    strapline: 'Pick an outfit!'
-  };
-
+function mainController ( $scope ) {
   $scope.data = [];
-  WardrobeData.getWardrobe().then( function ( resp ) {
-    $scope.data = resp;
-  } );
-  ;
+
+  // var vm = this;
+  //
+  // vm.pageHeader = {
+  //   title: 'adventurewear',
+  //   strapline: 'Pick an outfit!'
+  // };
+
+  // WardrobeData.getWardrobe().then( function ( resp ) {
+  //   console.log("Response", resp);
+  //   $scope.data = resp;
+  // });
 };

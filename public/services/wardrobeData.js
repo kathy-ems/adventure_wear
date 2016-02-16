@@ -3,7 +3,8 @@ angular
     .factory('WardrobeData', function () {
 
       var getWardrobe = function () {
-        return wardrobe: [{
+        return {
+          wardrobe: [{
           top: 't-shirt',
           bottom: 'capris',
           head: 'sunglasses',
@@ -40,11 +41,12 @@ angular
           activity: 'trail running'
         }]
       };
+    };
 
     return {
-      getWardrobe: getWardrobe
+      wardrobe: getWardrobe
       // locationByCoords : locationByCoords,
       // locationById : locationById,
       // addReviewById : addReviewById
     };
-  };
+  });
