@@ -6,7 +6,7 @@ mainController.$inject = ['$scope'];
 
 function mainController ( $scope ) {
   $scope.data = {};
-  $scope.data.title = "Your Adventure Awaits!";
+  $scope.data.tagline = "Your Adventure Awaits!";
 
   // var vm = this;
   //
