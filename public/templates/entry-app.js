@@ -1,28 +1,20 @@
 var app = angular.module('adventurewear', [
   'ngRoute',
-  'adventurewear.main'
-  // 'adventurewear.footer',
-  // 'adventurewear.wardrobedata'
+  'adventurewear.main',
+  'adventurewear.wardrobedata'
 ]);
 
   app.config(['$routeProvider',
     function($routeProvider) {
       $routeProvider
-      // .when('/', {
-      //   templateUrl: 'index.html'
-      // })
       .when('/main', {
         templateUrl: 'templates/main.tpl.html',
         controller: 'mainController'
       })
-      // .when('/list', {
-      //   templateUrl: 'wardrobe.tpl.html',
-      //   controller: 'wardrobeController'
-      // })
-      // .when('/footer', {
-      //   templateUrl: 'footer.tpl.html',
-      //   controller: 'footerController'
-      // })
+      .when('/list', {
+        templateUrl: 'templates/wardrobe.tpl.html',
+        controller: 'wardrobeController'
+      })
       .otherwise({
         redirectTo: '/main'
       })
