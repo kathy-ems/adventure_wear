@@ -1,5 +1,8 @@
+<section>
+  <input type='text' ng-model='search' placeholder='filter' class='input' />
+</section>
 <div>
-  <div class="container" ng-repeat="item in data.wardrobe.wardrobe">
+  <div class="container" ng-repeat="item in data.wardrobe.wardrobe | filter:search | orderBy:'temperature'">
     <h4>For {{ item.activity }} on a {{item.conditions}} day  @ {{ item.temperature }} degrees (Humidity: {{ item.humidity }}) </h4>
     <p>Wear these!
       <ul>
