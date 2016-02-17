@@ -2,12 +2,10 @@
 
 ## Be Prepared For The Elements On your Next Adventure ##
 <!--Name the product in a way the reader (i.e. your target customers) will understand.-->
+For adventure loving folks who wish there was an app that told them what to wear for it.
 
 _"No more staring at your wardrobe wondering if you will be over dressed or under dressed for the weather conditions!"_  - Kathy creator of Ready For Adventure 
-<!--> A quote from a spokesperson in your company.-->
-
-For adventure loving folks who wish there was an app that told them what to wear for it.
-  <!--> Describe who the market for the product is and what benefit they get. One sentence only underneath the title.-->
+<!-- A quote from a spokesperson in your company.-->
 
 <!--## Summary ##-->
 Adventure Wear gives you customized data on what you wore previously and makes suggestions on what you should wear for your next adventure, whether it's biking, running, swimming, kayaking or hiking.
@@ -20,11 +18,11 @@ Provides a customized 'wardrobe', where you 'hang' that favorite shirt in and ta
 
 ## How to Get Started ##
 Open the app and select the current weather and your activity. Choose an outfit and get out the door!
-<!--> Describe how easy it is to get started.-->
+<!-- Describe how easy it is to get started.-->
 
 ## Customer Quote ##
 _"This is the hidden gem for anyone who is active and enjoys the outdoors and wants to be comfortable while doing the activities they love."_ - Sally from Colorado
-<!--> Provide a quote from a hypothetical customer that describes how they experienced the benefit.-->
+<!-- Provide a quote from a hypothetical customer that describes how they experienced the benefit.-->
 
 
 <!--## Closing and Call to Action ##-->
