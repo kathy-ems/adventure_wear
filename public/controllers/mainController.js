@@ -19,11 +19,17 @@ angular
 
 mainController.$inject = ['$scope', '$filter'];
 
+
 function mainController ( $scope ) {
   $scope.data = {};
   $scope.data.wardrobe = {};
   var vm = this;
 
+  $scope.getCSSClass = function(searchTemp) {
+    if(searchTemp > 99 || searchTemp < -40){
+      return "label label-warning"
+    }
+  }
   $scope.data.pageHeader = {
     title: 'Adventure Wear',
     tagline: "Your Adventure Awaits!",
