@@ -2,18 +2,28 @@ angular
   .module('adventurewear.main', [])
     .controller('mainController', mainController)
     .filter('filterTemp', function() {
-    return function(input, desiredTemp) {
+    return function(input, search) {
       var out = [];
-      if (isNaN(desiredTemp)) {
-        out.push(desiredTemp);
-      } else {
+      if(search.activity === undefined) {
         angular.forEach(input, function(wardrobe) {
-          if (wardrobe.temperature >= (desiredTemp-10) && wardrobe.temperature <= (desiredTemp + 10) ) {
+          if(wardrobe.temperature >= (search.temp-10)
+            && wardrobe.temperature <= (search.temp + 10)
+          ){
             out.push(wardrobe);
           }
         })
-      }
-      return out;
+      } else {
+      angular.forEach(input, function(wardrobe) {
+        if (
+          wardrobe.temperature >= (search.temp-10)
+          && wardrobe.temperature <= (search.temp + 10)
+          && wardrobe.activity === search.activity
+        ) {
+          out.push(wardrobe);
+        }
+      })
+    }
+    return out;
     }
   })
   .filter('validate', function () {
@@ -66,7 +76,8 @@ function mainController ( $scope ) {
     title: 'Adventure Wear',
     tagline: "Your Adventure Awaits!",
     subtagline: "Determine the best outfit for your next adventure",
-    filterlabel: "... based on this temperature: "
+    tempfilterlabel: "... based on this temperature: ",
+    actfilterlabel: "and on activity"
   };
 
   $scope.data.wardrobe = {
