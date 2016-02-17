@@ -76,7 +76,7 @@ function mainController ( $scope ) {
     title: 'Adventure Wear',
     tagline: "Your Adventure Awaits!",
     subtagline: "Determine the best outfit for your next adventure",
-    tempfilterlabel: "... based on this temperature: ",
+    tempfilterlabel: "... based on this temperature (Fahrenheit): ",
     actfilterlabel: "and on activity"
   };
 
