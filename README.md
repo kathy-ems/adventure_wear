@@ -15,7 +15,13 @@
 
 ### Suggested Enhancements
 - use Celsius and Fahrenheit
-- Favorites button for cloth items
+- Favorites button for clothes items
 - get adverts to sell clothes
 - create API for things like magic mirror
 - integrate with other home inventory apps
+
+### To be included
+- get current weather conditions
+- Categories:
+  - Neck wear
+  - air temp and feels like temp
