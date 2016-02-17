@@ -4,16 +4,26 @@ angular
     .filter('filterTemp', function() {
     return function(input, search) {
       var out = [];
-      if (isNaN(search.temp)) {
-        out.push(search.temp);
-      } else {
+      if(search.activity === undefined) {
         angular.forEach(input, function(wardrobe) {
-          if (wardrobe.temperature >= (search.temp-10) && wardrobe.temperature <= (search.temp + 10) && wardrobe.activity === search.activity ) {
+          if(wardrobe.temperature >= (search.temp-10)
+            && wardrobe.temperature <= (search.temp + 10)
+          ){
             out.push(wardrobe);
           }
         })
-      }
-      return out;
+      } else {
+      angular.forEach(input, function(wardrobe) {
+        if (
+          wardrobe.temperature >= (search.temp-10)
+          && wardrobe.temperature <= (search.temp + 10)
+          && wardrobe.activity === search.activity
+        ) {
+          out.push(wardrobe);
+        }
+      })
+    }
+    return out;
     }
   })
   .filter('validate', function () {
