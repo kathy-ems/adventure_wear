@@ -30,6 +30,7 @@ It's time to get out the door and on with your adventure!
 
 ### What's to come!
 Check out my waffle.io board for stories in Ready [![Stories in Ready](https://badge.waffle.io/kathy-ems/adventure_wear.svg?label=ready&title=Ready)](http://waffle.io/kathy-ems/adventure_wear)
+Or submit an [submit an issue](https://github.com/kathy-ems/adventure_wear/issues) to add what you'd like to see!
 
 #Technical Information
 ## Dependencies
