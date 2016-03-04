@@ -44,16 +44,7 @@ It's time to get out the door and on with your adventure!
 - go to `localhost:3000` in a browser
 
 ### What's to come!
-- get current weather conditions
-- Categories:
-  - Neck wear
-  - air temp and feels like temp
+Check out my waffle.io board for stories in Ready [![Stories in Ready](https://badge.waffle.io/kathy-ems/adventure_wear.svg?label=ready&title=Ready)](http://waffle.io/kathy-ems/adventure_wear)
 
-### Suggested Enhancements
-- use Celsius and Fahrenheit
-- Favorites button for clothes items
-- get adverts to sell clothes
-- create API for things like magic mirror
-- integrate with other home inventory apps
 
 
