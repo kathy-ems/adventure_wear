@@ -28,7 +28,7 @@ angular
   })
   .filter('validate', function () {
     return function(input) {
-      if(input === undefined){
+      if(input === undefined || input === null) {
         return "N/A";
       }
       return input;

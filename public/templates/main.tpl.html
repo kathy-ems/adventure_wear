@@ -49,20 +49,22 @@
       <h3 ng-class="getCSSClass(search.temp)">Suggestions for {{ search.temp }} &deg;F</h3>
       <div class="col-xs-8 col-sm-6 list-group-item" ng-repeat="item in data.wardrobe.wardrobe | filterTemp:search | orderBy:'temperature' track by $index">
         <div class="alert alert-dismissible alert-success">
-          <h5 class="lead">{{ item.temperature }} &deg;F on a {{item.conditions }} day</h5><h5 ng-show="item.humidity"> with humidity of {{ item.humidity }} </h5>
+          <h5 class="lead">{{ item.temperature }} &deg;F on a {{item.conditions | validate | titleCase }} day with {{ item.wind }}mph winds.</h5>
+          <h5> Feels like {{ item.feelsLike  | validate }} &deg;F with humidity of {{ item.humidity  | validate }}% at {{ item.timeOfDay }} </h5>
         </div>
         <div class="panel panel-info">
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h3 class="panel-title">Activity: {{ item.activity }}</h3>
+              <h3 class="panel-title">Activity: {{ item.activity | validate | titleCase }} at {{ item.intensity | validate | titleCase }} intensity</h3>
             </div>
             <div class="panel-body">
-              <ul class="list-group">
-                <li class="list-group-item well-sm">Top: {{ item.top | titleCase }} </li>
-                <li class="list-group-item well-sm">Bottom:  {{ item.bottom | titleCase }}</li>
-                <li class="list-group-item well-sm">Head Gear: {{ item.head | titleCase }}</li>
-                <li class="list-group-item well-sm">Hands: {{ item.hands | validate | titleCase }}</li>
-              </ul>
+              <div class="top-gear gear-label">Top Gear</div>
+              <div class="top-gear-list">{{ item.top | validate | titleCase }}, {{ item.head | validate | titleCase }}, {{ item.hands | validate | titleCase  }}, {{ item.arms | validate | titleCase  }}</div>
+              <div class="bottom-gear gear-label">Bottom Gear</div>
+              <div class="bottom-gear-list">{{ item.bottom | validate | titleCase }}, {{ item.socks | validate | titleCase }}</div>
+              <div class="accessories-gear gear-label">Accessories Gear</div>
+              <div class="accessories-gear-list">{{ item.outter | validate | titleCase }}, {{ item.socks | validate | titleCase }}, {{ item.reflective | validate | titleCase }}</div>
+            </div>
             </div>
           </div>
         </div>
@@ -76,20 +78,21 @@
     <h3> What you've worn before!</h3>
     <div class="col-xs-8 col-sm-6 list-group-item" ng-repeat="item in data.wardrobe.wardrobe | orderBy:'temperature' track by $index">
       <div class="alert alert-dismissible alert-success">
-        <h5 class="lead">{{ item.temperature }} &deg;F on a {{item.conditions }} day</h5><h5 ng-show="item.humidity"> with humidity of {{ item.humidity }} </h5>
+        <h5 class="lead">{{ item.temperature }} &deg;F on a {{item.conditions | validate | titleCase }} day with {{ item.wind }}mph winds.</h5>
+        <h5> Feels like {{ item.feelsLike  | validate }} &deg;F with humidity of {{ item.humidity  | validate }}% at {{ item.timeOfDay }} </h5>
       </div>
       <div class="panel panel-info">
         <div class="panel panel-info">
           <div class="panel-heading">
-            <h3 class="panel-title">Activity: {{ item.activity | titleCase }}</h3>
+            <h3 class="panel-title">Activity: {{ item.activity | validate | titleCase }} at {{ item.intensity | validate | titleCase }} intensity</h3>
           </div>
           <div class="panel-body">
-            <ul class="list-group">
-              <li class="list-group-item well-sm">Top: {{ item.top | titleCase }} </li>
-              <li class="list-group-item well-sm">Bottom:  {{ item.bottom | titleCase }}</li>
-              <li class="list-group-item well-sm">Head Gear: {{ item.head | titleCase }}</li>
-              <li class="list-group-item well-sm">Hands: {{ item.hands | validate | titleCase  }}</li>
-            </ul>
+            <div class="top-gear gear-label">Top Gear</div>
+            <div class="top-gear-list">{{ item.top | validate | titleCase }}, {{ item.head | validate | titleCase }}, {{ item.hands | validate | titleCase  }}, {{ item.arms | validate | titleCase  }}</div>
+            <div class="bottom-gear gear-label">Bottom Gear</div>
+            <div class="bottom-gear-list">{{ item.bottom | validate | titleCase }}, {{ item.socks | validate | titleCase }}</div>
+            <div class="accessories-gear gear-label">Accessories Gear</div>
+            <div class="accessories-gear-list">{{ item.outter | validate | titleCase }}, {{ item.socks | validate | titleCase }}, {{ item.reflective | validate | titleCase }}</div>
           </div>
         </div>
       </div>
