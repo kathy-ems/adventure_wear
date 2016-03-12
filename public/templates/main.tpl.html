@@ -50,7 +50,12 @@
       <div class="col-xs-8 col-sm-6 list-group-item" ng-repeat="item in data.wardrobe.wardrobe | filterTemp:search | orderBy:'temperature' track by $index">
         <div class="alert alert-dismissible alert-success">
           <h5 class="lead">{{ item.temperature }} &deg;F on a {{item.conditions | validate | titleCase }} day with {{ item.wind }}mph winds.</h5>
-          <h5> Feels like {{ item.feelsLike  | validate }} &deg;F with humidity of {{ item.humidity  | validate }}% at {{ item.timeOfDay }} </h5>
+          <div>
+            <span ng-show="item.feelsLike">Feels like {{ item.feelsLike}} &deg;F</span>
+            <span ng-show="item.humidity"> Humidity of {{ item.humidity}}%</span>
+            <span ng-show="item.timeOfDay"> Time: {{ item.timeOfDay }}</span>
+            <span ng-show="item.percipType"> {{ item.percip }} {{ item.percipType }}</span>
+          </div>
         </div>
         <div class="panel panel-info">
           <div class="panel panel-info">
@@ -79,7 +84,12 @@
     <div class="col-xs-8 col-sm-6 list-group-item" ng-repeat="item in data.wardrobe.wardrobe | orderBy:'temperature' track by $index">
       <div class="alert alert-dismissible alert-success">
         <h5 class="lead">{{ item.temperature }} &deg;F on a {{item.conditions | validate | titleCase }} day with {{ item.wind }}mph winds.</h5>
-        <h5> Feels like {{ item.feelsLike  | validate }} &deg;F with humidity of {{ item.humidity  | validate }}% at {{ item.timeOfDay }} </h5>
+        <div>
+          <span ng-show="item.feelsLike">Feels like {{ item.feelsLike}} &deg;F</span>
+          <span ng-show="item.humidity"> Humidity of {{ item.humidity}}%</span>
+          <span ng-show="item.timeOfDay"> Time: {{ item.timeOfDay }}</span>
+          <span ng-show="item.percipType"> {{ item.percip }} {{ item.percipType }}</span>
+        </div>
       </div>
       <div class="panel panel-info">
         <div class="panel panel-info">
