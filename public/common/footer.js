@@ -5,6 +5,6 @@ angular
   function footer () {
     return {
       restrict: 'EA',
-      templateUrl: '../templates/footer.tpl.html'
+      templateUrl: '../common/footer.tpl.html'
     };
   };
