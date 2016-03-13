@@ -6,7 +6,6 @@
     "start": "node ./bin/www",
     "test": "mocha app_server/spec/server-spec.js; RES=$?; kill %1; exit $RES",
     "lint": "eslint ./",
-    "postinstall": "bower install"
   },
   "dependencies": {
     "angular": "^1.5.0",
