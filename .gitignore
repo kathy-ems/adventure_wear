@@ -88,7 +88,7 @@ bower_components
 .DS_Store
 
 #Sass generated css files
-public/stylesheets/
+#public/stylesheets/
 
 coverage.html
 
