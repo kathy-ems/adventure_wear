@@ -1,11 +1,12 @@
 {
-  "name": "express-node-simple",
-  "version": "0.0.0",
+  "name": "Dress for Adventure",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
     "test": "mocha app_server/spec/server-spec.js; RES=$?; kill %1; exit $RES",
-    "lint": "eslint ./"
+    "lint": "eslint ./",
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
   "dependencies": {
     "angular": "^1.5.0",
@@ -22,7 +23,6 @@
   },
   "devDependencies": {
     "chai": "^1.9.1",
-    "eslint-config-hackreactor": "git://github.com/hackreactor-labs/eslint-config-hackreactor",
     "mocha": "^1.21.4"
   },
   "engines": {

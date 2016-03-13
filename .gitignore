@@ -80,11 +80,6 @@ bower_components/
 .floo
 .flooignore
 
-
-# Dependency directory
-node_modules
-bower_components
-
 .DS_Store
 
 #Sass generated css files
