@@ -8,6 +8,7 @@ mainController.$inject = ['$scope', '$filter'];
 function mainController ( $scope ) {
   $scope.data = {};
   $scope.data.wardrobe = {};
+  $scope.search = {};
   var vm = this;
 
   $scope.getCSSClass = function(searchTemp) {
