@@ -1,11 +1,12 @@
 {
-  "name": "Dress for Adventure",
+  "name": "dress-for-adventure",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
     "test": "mocha app_server/spec/server-spec.js; RES=$?; kill %1; exit $RES",
-    "lint": "eslint ./"
+    "lint": "eslint ./",
+    "postinstall": "bower install"
   },
   "dependencies": {
     "angular": "^1.5.0",
