@@ -27,6 +27,27 @@ function mainController ( $scope ) {
   $scope.data.wardrobe = {
     wardrobe: [
       {
+        temperature: 63,
+        feelsLike: 63,
+        wind: 5,
+        humidity: null,
+        timeOfDay: '12:30:00',
+        percipType: null,
+        percip: null,
+        conditions: 'sunny',
+        outter: null,
+        reflective: null,
+        top: 't-shirt',
+        arms: null,
+        bottom: 'capris',
+        socks: null,
+        head: 'headband, sunglasses',
+        hands: null,
+        activity: 'running',
+        intensity: 'light',
+        rate: 'good'
+      },
+      {
         temperature: 56,
         feelsLike: 56,
         wind: 4,
