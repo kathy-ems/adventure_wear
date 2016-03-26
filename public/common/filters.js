@@ -16,7 +16,7 @@ angular
       if (
         wardrobe.temperature >= (search.temp-2)
         && wardrobe.temperature <= (search.temp + 2)
-        && wardrobe.activity === search.activity.toLowerCase()
+        && wardrobe.activity.toLowerCase() === search.activity.toLowerCase()
       ) {
         out.push(wardrobe);
       }
