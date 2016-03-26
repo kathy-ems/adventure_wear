@@ -69,6 +69,8 @@
               <div class="bottom-gear-list">{{ item.bottom | validate | titleCase }}, {{ item.socks | validate | titleCase }}</div>
               <div class="accessories-gear gear-label">Accessories Gear</div>
               <div class="accessories-gear-list">{{ item.outter | validate | titleCase }}, {{ item.socks | validate | titleCase }}, {{ item.reflective | validate | titleCase }}</div>
+              <div class="notes-gear-label">Notes</div>
+              <div class="notes-gear-list">{{item.notes | validate | titleCase }}</div>
             </div>
             </div>
           </div>
@@ -98,11 +100,13 @@
           </div>
           <div class="panel-body">
             <div class="top-gear gear-label">Top Gear</div>
-            <div class="top-gear-list">{{ item.top | validate | titleCase }}, {{ item.head | validate | titleCase }}, {{ item.hands | validate | titleCase  }}, {{ item.arms | validate | titleCase  }}</div>
+            <div class="top-gear-list">{{ item.top | validate | titleCase }}, {{ item.head | validate | titleCase }}, {{ item.hands | validate | titleCase  }}, {{ item.arms | validate | titleCase  }}, {{ item.neck | validate | titleCase  }}</div>
             <div class="bottom-gear gear-label">Bottom Gear</div>
             <div class="bottom-gear-list">{{ item.bottom | validate | titleCase }}, {{ item.socks | validate | titleCase }}</div>
             <div class="accessories-gear gear-label">Accessories Gear</div>
             <div class="accessories-gear-list">{{ item.outter | validate | titleCase }}, {{ item.socks | validate | titleCase }}, {{ item.reflective | validate | titleCase }}</div>
+            <div class="notes-gear-label gear-label">Notes</div>
+            <div class="notes-gear-list">{{item.rate | validate | titleCase }}; {{item.notes | validate | titleCase }} ~ {{item.addedOn | validate }}</div>
           </div>
         </div>
       </div>
