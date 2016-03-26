@@ -42,7 +42,7 @@ function mainController ( $scope ) {
         bottom: 'capris',
         socks: null,
         head: 'headband',
-        hands: null,
+        hands: 'lightweight gloves',
         neck: null,
         activity: 'running',
         intensity: 'light',
