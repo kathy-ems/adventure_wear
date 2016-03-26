@@ -23,14 +23,140 @@ function mainController ( $scope ) {
     tempfilterlabel: "... based on this temperature (Fahrenheit): ",
     actfilterlabel: "and on activity"
   };
+  $scope.activities = ['running', 'golf'];
 
   $scope.data.wardrobe = {
     wardrobe: [
       {
+        temperature: 51,
+        feelsLike: 51,
+        wind: 1,
+        humidity: 83,
+        timeOfDay: '06:30:00',
+        percipType: null,
+        percip: null,
+        conditions: 'clear',
+        outter: null,
+        reflective: 'vest',
+        top: 't-shirt',
+        arms: 'nike arm sleeves',
+        bottom: 'capris',
+        socks: null,
+        head: 'headband',
+        hands: 'lightweight gloves',
+        neck: null,
+        activity: 'running',
+        intensity: 'light',
+        rate: 'warm',
+        notes: 'multi layer - wear a tank instead of t-shirt',
+        active: true,
+        addedOn: '03/26/2016'
+      },
+      {
+        temperature: 56,
+        feelsLike: 56,
+        wind: 4,
+        humidity: 83,
+        timeOfDay: '08:00:00',
+        percipType: null,
+        percip: null,
+        conditions: 'mostly cloudy',
+        outter: null,
+        reflective: null,
+        top: 't-shirt',
+        arms: null,
+        bottom: 'capris',
+        socks: null,
+        head: null,
+        hands: null,
+        neck: null,
+        activity: 'running',
+        intensity: 'medium',
+        rate: 'good',
+        notes: null,
+        active: true,
+        addedOn: '03/20/2016'
+      },
+      {
+        temperature: 64,
+        feelsLike: 64,
+        wind: 8,
+        humidity: 71,
+        timeOfDay: '12:30:00',
+        percipType: null,
+        percip: null,
+        conditions: 'partly cloudy',
+        outter: null,
+        reflective: null,
+        top: 't-shirt',
+        arms: null,
+        bottom: 'capris',
+        socks: null,
+        head: null,
+        hands: null,
+        neck: null,
+        activity: 'running',
+        intensity: 'light',
+        rate: 'warm',
+        notes: 'tank if going longer than 2 miles',
+        active: true,
+        addedOn: '03/19/2016'
+      },
+      {
+        temperature: 55,
+        feelsLike: 54,
+        wind: 4,
+        humidity: 88,
+        timeOfDay: '06:30:00',
+        percipType: 'rain',
+        percip: 'fogging',
+        conditions: 'cloudy',
+        outter: null,
+        reflective: 'vest',
+        top: 't-shirt',
+        arms: null,
+        bottom: 'capris',
+        socks: null,
+        head: 'headband',
+        hands: 'lightweight gloves',
+        neck: null,
+        activity: 'running',
+        intensity: 'light',
+        rate: 'good',
+        notes: 'fogging, could have used a brimmed hat',
+        active: true,
+        addedOn: '03/19/2016'
+      },
+      {
+        temperature: 51,
+        feelsLike: 51,
+        wind: 0,
+        humidity: 86,
+        timeOfDay: '06:30:00',
+        percipType: null,
+        percip: null,
+        conditions: 'clear',
+        outter: null,
+        reflective: 'vest',
+        top: 't-shirt',
+        arms: null,
+        bottom: 'Pearl Izumi 3/4 capris',
+        socks: null,
+        head: 'headband',
+        hands: 'lightweight gloves',
+        neck: null,
+        activity: 'running',
+        intensity: 'light',
+        rate: 'good',
+        notes: 'May want to use mittens, arm sleeves if no vest',
+        active: true,
+        addedOn: '03/17/2016'
+      },
+      {
         temperature: 63,
         feelsLike: 63,
         wind: 5,
-        humidity: null,
+        humidity: 56,
         timeOfDay: '12:30:00',
         percipType: null,
         percip: null,
@@ -43,9 +169,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'headband, sunglasses',
         hands: null,
+        neck: null,
         activity: 'running',
         intensity: 'light',
-        rate: 'good'
+        rate: 'good',
+        active: true,
+        addedOn: '03/15/2016'
       },
       {
         temperature: 56,
@@ -64,9 +193,12 @@ function mainController ( $scope ) {
         socks: 'wool socks',
         head: 'headband, baseball hat',
         hands: 'brooks mittens',
+        neck: null,
         activity: 'running',
         intensity: 'medium',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 55,
@@ -84,7 +216,9 @@ function mainController ( $scope ) {
         head: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 45,
@@ -101,8 +235,11 @@ function mainController ( $scope ) {
         socks: null,
         head: 'hat',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
-        intensity: 'low'
+        intensity: 'low',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 49,
@@ -119,9 +256,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'hat',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 54,
@@ -138,9 +278,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'headband',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 58,
@@ -157,9 +300,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'headband',
         hands: null,
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 53,
@@ -176,9 +322,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'hat',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'warm'
+        rate: 'warm',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 54,
@@ -195,9 +344,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'headband',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 55,
@@ -216,9 +368,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'headband',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 59,
@@ -237,9 +392,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'headband',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 56,
@@ -258,9 +416,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'headband',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 55,
@@ -279,9 +440,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'headband',
         hands: 'cotton gloves',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 48,
@@ -300,9 +464,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'headband',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 46,
@@ -321,9 +488,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'hat',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 53,
@@ -342,9 +512,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'hat',
         hands: 'cotton gloves',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 53,
@@ -363,9 +536,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'hat',
         hands: 'cotton gloves',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 52,
@@ -384,9 +560,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'hat',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 51,
@@ -405,9 +584,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'hat',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 61,
@@ -426,9 +608,12 @@ function mainController ( $scope ) {
         socks: null,
         head: null,
         hands: null,
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 50,
@@ -447,9 +632,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'hat',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 59,
@@ -468,9 +656,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'headband',
         hands: null,
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 53,
@@ -489,9 +680,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'hat',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 53,
@@ -510,9 +704,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'hat',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 56,
@@ -531,9 +728,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'headband',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 52,
@@ -552,9 +752,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'hat',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 56,
@@ -573,9 +776,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'headband',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 58,
@@ -594,9 +800,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'headband',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 45,
@@ -615,9 +824,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'hat',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 50,
@@ -636,9 +848,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'hat',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 53,
@@ -657,9 +872,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'hat',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 50,
@@ -678,9 +896,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'hat',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 59,
@@ -699,9 +920,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'headband',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 56,
@@ -720,9 +944,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'headband',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 56,
@@ -741,9 +968,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'headband',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 63,
@@ -762,9 +992,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'headband',
         hands: null,
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 59,
@@ -783,9 +1016,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'headband',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 54,
@@ -804,9 +1040,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'headband',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 52,
@@ -825,9 +1064,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'headband',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 45,
@@ -846,9 +1088,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'headband',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 44,
@@ -867,9 +1112,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'hat',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 40,
@@ -888,9 +1136,12 @@ function mainController ( $scope ) {
         socks: 'wool socks',
         head: 'hat',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 43,
@@ -909,9 +1160,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'headband',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 48,
@@ -930,9 +1184,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'headband',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 43,
@@ -951,9 +1208,12 @@ function mainController ( $scope ) {
         socks: 'warm socks',
         head: 'hat',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 57,
@@ -972,9 +1232,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'headband',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 46,
@@ -993,30 +1256,36 @@ function mainController ( $scope ) {
         socks: null,
         head: 'headband',
         hands: 'mittens',
+        neck: null,
         activity: 'Running',
         intensity: 'low',
-        rate: 'good'
+        rate: 'good',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
-        temperature: 56,
+        temperature: 62,
         feelsLike: null,
         wind: 2,
         humidity: null,
-        timeOfDay: '13:30:00',
+        timeOfDay: '11:30:00',
         percipType: 'rain',
-        percip: null,
+        percip: 'light',
         conditions: 'cloudy',
-        outter: 'white long sleeve',
+        outter: 'rain coat',
         reflective: null,
-        top: 'long light blue shirt',
+        top: '13.1 black long sleeve, collard shirt',
         arms: null,
-        bottom: 'heavy pants',
+        bottom: 'MH pants',
         socks: null,
-        head: 'headband',
+        head: 'headband, hat',
         hands: null,
+        neck: 'buff',
         activity: 'golf',
-        intensity: '18 holes',
-        rate: 'test'
+        intensity: '9 holes',
+        rate: 'good',
+        active: true,
+        addedOn: '03/20/2016'
       },
       {
         temperature: 56,
@@ -1035,9 +1304,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'headband',
         hands: null,
+        neck: null,
         activity: 'biking',
         intensity: '18 holes',
-        rate: 'test'
+        rate: 'test',
+        active: false,
+        addedOn: '03/01/2016'
       },
       {
         temperature: 56,
@@ -1056,12 +1328,12 @@ function mainController ( $scope ) {
         socks: null,
         head: 'headband',
         hands: null,
+        neck: null,
         activity: 'hiking',
         intensity: '18 holes',
         rate: 'test'
-      }
-    ]
-  }
+      }]
+    }
 };
 
 // WardrobeData.getWardrobe().then( function ( resp ) {
