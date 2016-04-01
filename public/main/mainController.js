@@ -23,7 +23,13 @@ function mainController ( $scope ) {
     tempfilterlabel: "... based on this temperature (Fahrenheit): ",
     actfilterlabel: "and on activity"
   };
-  $scope.activities = ['running', 'golf'];
+  $scope.activities = ['All', 'Running', 'Golf', 'Hiking'];
+
+  $scope.activities1 = [
+    { name: 'running'},
+    {name:'hiking'},
+    {name: 'golf'}
+  ];
 
   $scope.data.wardrobe = {
     wardrobe: [

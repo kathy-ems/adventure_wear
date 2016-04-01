@@ -34,10 +34,11 @@
 <section>
   <div class="row">
     <div class="col-xs-12 col-sm-6">
-      <div class="form-group">
-        <label class="filterlabel" for="actfilter">{{ data.pageHeader.actfilterlabel }}</label>
-        <input id="actfilter" type="text" name="actfilter" placeholder='Golf, Running, Hiking, etc' class='input' ng-model="search.activity" />
-        <div class="error">{{ vm.message }}</div>
+    <div class="form-group">
+      <label class="filterlabel" for="actfilter">{{ data.pageHeader.actfilterlabel }}</label>
+      <select ng-options="activity for activity in activities" ng-model="search.activity">
+        <option value="option-2"></option>
+      </select>
     </div>
   </div>
 </div>
