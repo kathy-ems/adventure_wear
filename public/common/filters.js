@@ -5,8 +5,8 @@ angular
     var out = [];
     if(search.activity === undefined) {
       angular.forEach(input, function(wardrobe) {
-        if(wardrobe.temperature >= (search.temp-2)
-          && wardrobe.temperature <= (search.temp + 2)
+        if(wardrobe.weather[0].temperature >= (search.temp-2)
+          && wardrobe.weather[0].temperature <= (search.temp + 2)
         ){
           out.push(wardrobe);
         }
@@ -14,8 +14,8 @@ angular
     } else {
     angular.forEach(input, function(wardrobe) {
       if (
-        wardrobe.temperature >= (search.temp-2)
-        && wardrobe.temperature <= (search.temp + 2)
+        wardrobe.weather[0].temperature >= (search.temp-2)
+        && wardrobe.weather[0].temperature <= (search.temp + 2)
         && wardrobe.activity.toLowerCase() === search.activity.toLowerCase()
       ) {
         out.push(wardrobe);

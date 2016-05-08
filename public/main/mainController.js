@@ -7,11 +7,11 @@ mainController.$inject = ['$scope', '$filter'];
 
 function mainController ( $scope ) {
   $scope.data = {};
-  $scope.data.wardrobe = {};
+  $scope.data.events = {};
   $scope.search = {};
   var vm = this;
 
-  $scope.getCSSClass = function(searchTemp) {
+  $scope.checkRange = function(searchTemp) {
     if(searchTemp > 99 || searchTemp < -40){
       return "text-danger"
     }
@@ -31,69 +31,68 @@ function mainController ( $scope ) {
     {name: 'golf'}
   ];
 
-  $scope.data.events = {
-    wardrobe: [
-      {
-        timeOfDay: 'afternoon',
-        dateTime: '12:00:00',
-        addedOn: '04/10/2016',
-        weather: {
-          temperature: 59,
-          feelsLike: 59,
-          wind: 9,
-          humidity: 90,
-          percipType: null,
-          percip: null,
-          conditions: 'overcast'
-        },
-        wardrobe: [{
-          outter: 'rain jacket, Nike blue long sleeve pull over',
-          reflective: null,
-          top: 'blue shirt, black 13.1 long sleeved',
-          arms: null,
-          bottom: 'REI black pants',
-          socks: null,
-          head: 'headband, brimmed hat',
-          hands: null,
-          neck: 'buff',
-        }],
-        activity: 'golf',
-        intensity: '18 holes',
-        rate: 'good',
-        notes: null,
-        active: true
+  $scope.data.events = [
+    {
+      timeOfDay: 'afternoon',
+      dateTime: '12:00:00',
+      addedOn: '04/10/2016',
+      weather: {
+        temperature: 59,
+        feelsLike: 59,
+        wind: 9,
+        humidity: 90,
+        percipType: null,
+        percip: null,
+        conditions: 'overcast'
       },
-      {
-        timeOfDay: 'morning',
-        dateTime: '07:00:00',
-        addedOn: '04/09/2016',
-        weather: {
-          temperature: 56,
-          feelsLike: 56,
-          wind: 6,
-          humidity: 90,
-          percipType: 'rain',
-          percip: 'light',
-          conditions: 'rain'
-        },
-        wardrobe: [{
-          outter: null,
-          reflective: null,
-          top: 't-shirt',
-          arms: 'arm sleeves',
-          bottom: 'capris',
-          socks: 'wool socks',
-          head: 'headband, brimmed hat',
-          hands: 'light weight gloves',
-          neck: null,
-        }],
-        activity: 'running',
-        intensity: 'medium',
-        rate: 'good',
-        notes: null,
-        active: true
+      wardrobe: [{
+        outter: 'rain jacket, Nike blue long sleeve pull over',
+        reflective: null,
+        top: 'blue shirt, black 13.1 long sleeved',
+        arms: null,
+        bottom: 'REI black pants',
+        socks: null,
+        head: 'headband, brimmed hat',
+        hands: null,
+        neck: 'buff',
+      }],
+      activity: 'golf',
+      intensity: '18 holes',
+      rate: 'good',
+      notes: null,
+      active: true
+    },
+    {
+      timeOfDay: 'morning',
+      dateTime: '07:00:00',
+      addedOn: '04/09/2016',
+      weather: {
+        temperature: 56,
+        feelsLike: 56,
+        wind: 6,
+        humidity: 90,
+        percipType: 'rain',
+        percip: 'light',
+        conditions: 'rain'
       },
-      {
+      wardrobe: [{
+        outter: null,
+        reflective: null,
+        top: 't-shirt',
+        arms: 'arm sleeves',
+        bottom: 'capris',
+        socks: 'wool socks',
+        head: 'headband, brimmed hat',
+        hands: 'light weight gloves',
+        neck: null,
+      }],
+      activity: 'running',
+      intensity: 'medium',
+      rate: 'good',
+      notes: null,
+      active: true
+    },
+    {
       timeOfDay: 'morning',
       addedOn: '03/31/2016',
       dateTime: '06:30:00',
