@@ -1,17 +1,16 @@
 <div class="navbar navbar-default navbar-fixed-top">
-<div class="container">
-  <div class="navbar-header">
-    <a href="../" class="navbar-brand">{{ data.pageHeader.title}}</a>
-  </div>
-  <div class="navbar-collapse collapse" id="navbar-main">
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="http://builtwithbootstrap.com/" target="_blank">Built With Bootstrap</a></li>
-      <li><a href="https://wrapbootstrap.com/?ref=bsw" target="_blank">WrapBootstrap</a></li>
-    </ul>
+  <div class="container">
+    <div class="navbar-header">
+      <a href="../" class="navbar-brand">{{ data.pageHeader.title}}</a>
+    </div>
+    <div class="navbar-collapse collapse" id="navbar-main">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="http://builtwithbootstrap.com/" target="_blank">Built With Bootstrap</a></li>
+        <li><a href="https://wrapbootstrap.com/?ref=bsw" target="_blank">WrapBootstrap</a></li>
+      </ul>
+    </div>
   </div>
 </div>
-</div>
-
 <div class="container">
   <div class="page-header" id="banner">
     <div class="row">
@@ -21,40 +20,75 @@
       </div>
       <div class="col-lg-4 col-md-5 col-sm-6">
    </div>
-<section>
-  <div class="row">
-    <div class="col-xs-12 col-sm-6">
-        <div class="form-group">
-          <label class="filterlabel control-label" for="inputDefault">{{ data.pageHeader.tempfilterlabel }}</label>
-          <input id="inputDefault" type="number" name="filter" placeholder='Enter Temperature &deg;F' class='input' ng-model="search.temp" />
-        </div>
-      <div class="error">{{ vm.message }}</div>
-    </div>
-</section>
-<section>
-  <div class="row">
-    <div class="col-xs-12 col-sm-6">
-    <div class="form-group">
-      <label class="filterlabel" for="actfilter">{{ data.pageHeader.actfilterlabel }}</label>
-      <select ng-options="activity for activity in activities" ng-model="search.activity">
-        <option value="option-2"></option>
-      </select>
+  <section>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+          <div class="form-group">
+            <label class="filterlabel control-label" for="inputDefault">{{ data.pageHeader.tempfilterlabel }}</label>
+            <input id="inputDefault" type="number" name="filter" placeholder='Enter Temperature &deg;F' class='input' ng-model="search.temp" />
+          </div>
+        <div class="error">{{ vm.message }}</div>
+      </div>
+  </section>
+  <section>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <label class="filterlabel" for="actfilter">{{ data.pageHeader.actfilterlabel }}</label>
+        <select ng-options="activity for activity in activities" ng-model="search.activity">
+          <option value="option-2"></option>
+        </select>
+      </div>
     </div>
   </div>
-</div>
-</section>
-<section>
-<div class="row">
-  <div>
-    <span ng-show="search.temp">
-      <h3 ng-class="getCSSClass(search.temp)">Suggestions for {{ search.temp }} &deg;F</h3>
-      <div class="col-xs-8 col-sm-6 list-group-item" ng-repeat="item in data.wardrobe.wardrobe | filterTemp:search | orderBy:'temperature' track by $index">
+  </section>
+  <section>
+  <div class="row">
+    <div>
+      <span ng-show="search.temp">
+        <h3 ng-class="checkRange(search.temp)">Suggestions for {{ search.temp }} &deg;F</h3>
+        <div class="col-xs-8 col-sm-6 list-group-item" ng-repeat="item in data.events | filterTemp:search | orderBy:'temperature' track by $index">
+          <div class="alert alert-dismissible alert-success">
+            <h5 class="lead">{{ item.weather[0].temperature }} &deg;F on a {{item.weather[0].conditions | validate | titleCase }} day with {{ item.weather[0].wind }}mph winds.</h5>
+            <div>
+              <span ng-show="item.weather[0].feelsLike">Feels like {{ item.weather[0].feelsLike}} &deg;F | </span>
+              <span ng-show="item.weather[0].humidity"> Humidity of {{ item.weather[0].humidity}}% | </span>
+              <span ng-show="item.weather[0].percipType"> {{ item.weather[0].percip | titleCase }} {{ item.weather[0].percipType | titleCase }} | </span>
+              <span ng-show="item.timeOfDay"> Time: {{ item.timeOfDay }}</span>
+            </div>
+          </div>
+          <div class="panel panel-info">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h3 class="panel-title">Activity: {{ item.activity | validate | titleCase }} at {{ item.intensity | validate | titleCase }} intensity</h3>
+              </div>
+              <div class="panel-body">
+                <div class="top-gear gear-label">Top Gear</div>
+                <div class="top-gear-list">{{ item.wardrobe.top | validate | titleCase }}, {{ item.wardrobe.head | validate | titleCase }}, {{ item.hands | validate | titleCase  }}, {{ item.arms | validate | titleCase  }}, {{ item.neck | validate | titleCase  }}</div>
+                <div class="bottom-gear gear-label">Bottom Gear</div>
+                <div class="bottom-gear-list">{{ item.wardrobe.bottom | validate | titleCase }}, {{ item.wardrobe.socks | validate | titleCase }}</div>
+                <div class="accessories-gear gear-label">Accessories Gear</div>
+                <div class="accessories-gear-list">{{ item.wardrobe.outter | validate | titleCase }}, {{ item.wardrobe.socks | validate | titleCase }}, {{ item.reflective | validate | titleCase }}</div>
+                <div class="notes-gear-label gear-label">Notes</div>
+                <div class="notes-gear-list">{{item.rate | validate | titleCase }}; {{item.notes | validate | titleCase }} ~ {{item.addedOn | validate }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </span>
+    </div>
+  </div>
+  </section>
+  <div class="sponsor">
+    <span ng-hide="search.temp">
+      <h3> What you've worn before!</h3>
+      <div class="col-xs-8 col-sm-6 list-group-item" ng-repeat="item in data.events | orderBy:'weather.temperature' track by $index">
         <div class="alert alert-dismissible alert-success">
-          <h5 class="lead">{{ item.temperature }} &deg;F on a {{item.conditions | validate | titleCase }} day with {{ item.wind }}mph winds.</h5>
+          <h5 class="lead">{{ item.weather[0].temperature }} &deg;F on a {{item.weather[0].conditions | validate | titleCase }} day with {{ item.weather[0].wind }}mph winds.</h5>
           <div>
-            <span ng-show="item.feelsLike">Feels like {{ item.feelsLike}} &deg;F | </span>
-            <span ng-show="item.humidity"> Humidity of {{ item.humidity}}% | </span>
-            <span ng-show="item.percipType"> {{ item.percip | titleCase }} {{ item.percipType | titleCase }} | </span>
+            <span ng-show="item.weather[0].feelsLike">Feels like {{ item.weather[0].feelsLike}} &deg;F | </span>
+            <span ng-show="item.weather[0].humidity"> Humidity of {{ item.weather[0].humidity}}% | </span>
+            <span ng-show="item.weather[0].percipType"> {{ item.weather[0].percip | titleCase }} {{ item.weather[0].percipType | titleCase }} | </span>
             <span ng-show="item.timeOfDay"> Time: {{ item.timeOfDay }}</span>
           </div>
         </div>
@@ -65,53 +99,17 @@
             </div>
             <div class="panel-body">
               <div class="top-gear gear-label">Top Gear</div>
-              <div class="top-gear-list">{{ item.top | validate | titleCase }}, {{ item.head | validate | titleCase }}, {{ item.hands | validate | titleCase  }}, {{ item.arms | validate | titleCase  }}, {{ item.neck | validate | titleCase  }}</div>
+              <div class="top-gear-list">{{ item.wardrobe.top | validate | titleCase }}, {{ item.wardrobe.head | validate | titleCase }}, {{ item.wardrobe.hands | validate | titleCase  }}, {{ item.wardrobe.arms | validate | titleCase  }}, {{ item.wardrobe.neck | validate | titleCase  }}</div>
               <div class="bottom-gear gear-label">Bottom Gear</div>
-              <div class="bottom-gear-list">{{ item.bottom | validate | titleCase }}, {{ item.socks | validate | titleCase }}</div>
+              <div class="bottom-gear-list">{{ item.wardrobe.bottom | validate | titleCase }}, {{ item.wardrobe.socks | validate | titleCase }}</div>
               <div class="accessories-gear gear-label">Accessories Gear</div>
-              <div class="accessories-gear-list">{{ item.outter | validate | titleCase }}, {{ item.socks | validate | titleCase }}, {{ item.reflective | validate | titleCase }}</div>
+              <div class="accessories-gear-list">{{ item.wardrobe.outter | validate | titleCase }}, {{ item.wardrobe.socks | validate | titleCase }}, {{ item.wardrobe.reflective | validate | titleCase }}</div>
               <div class="notes-gear-label gear-label">Notes</div>
               <div class="notes-gear-list">{{item.rate | validate | titleCase }}; {{item.notes | validate | titleCase }} ~ {{item.addedOn | validate }}</div>
-            </div>
             </div>
           </div>
         </div>
       </div>
     </span>
   </div>
-</div>
-</section>
-<div class="sponsor">
-  <span ng-hide="search.temp">
-    <h3> What you've worn before!</h3>
-    <div class="col-xs-8 col-sm-6 list-group-item" ng-repeat="item in data.wardrobe.wardrobe | orderBy:'temperature' track by $index">
-      <div class="alert alert-dismissible alert-success">
-        <h5 class="lead">{{ item.temperature }} &deg;F on a {{item.conditions | validate | titleCase }} day with {{ item.wind }}mph winds.</h5>
-        <div>
-          <span ng-show="item.feelsLike">Feels like {{ item.feelsLike}} &deg;F | </span>
-          <span ng-show="item.humidity"> Humidity of {{ item.humidity}}% | </span>
-          <span ng-show="item.percipType"> {{ item.percip | titleCase }} {{ item.percipType | titleCase }} | </span>
-          <span ng-show="item.timeOfDay"> Time: {{ item.timeOfDay }}</span>
-        </div>
-      </div>
-      <div class="panel panel-info">
-        <div class="panel panel-info">
-          <div class="panel-heading">
-            <h3 class="panel-title">Activity: {{ item.activity | validate | titleCase }} at {{ item.intensity | validate | titleCase }} intensity</h3>
-          </div>
-          <div class="panel-body">
-            <div class="top-gear gear-label">Top Gear</div>
-            <div class="top-gear-list">{{ item.top | validate | titleCase }}, {{ item.head | validate | titleCase }}, {{ item.hands | validate | titleCase  }}, {{ item.arms | validate | titleCase  }}, {{ item.neck | validate | titleCase  }}</div>
-            <div class="bottom-gear gear-label">Bottom Gear</div>
-            <div class="bottom-gear-list">{{ item.bottom | validate | titleCase }}, {{ item.socks | validate | titleCase }}</div>
-            <div class="accessories-gear gear-label">Accessories Gear</div>
-            <div class="accessories-gear-list">{{ item.outter | validate | titleCase }}, {{ item.socks | validate | titleCase }}, {{ item.reflective | validate | titleCase }}</div>
-            <div class="notes-gear-label gear-label">Notes</div>
-            <div class="notes-gear-list">{{item.rate | validate | titleCase }}; {{item.notes | validate | titleCase }} ~ {{item.addedOn | validate }}</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </span>
-</div>
 </div>

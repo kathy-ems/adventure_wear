@@ -1,24 +1,24 @@
 angular
   .module('adventurewear.filters', [])
   .filter('filterTemp', function() {
-  return function(input, search) {
+  return function(events, search) {
     var out = [];
     if(search.activity === undefined) {
-      angular.forEach(input, function(wardrobe) {
-        if(wardrobe.temperature >= (search.temp-2)
-          && wardrobe.temperature <= (search.temp + 2)
+      angular.forEach(events, function(event) {
+        if(event.weather[0].temperature >= (search.temp-2)
+          && event.weather[0].temperature <= (search.temp + 2)
         ){
-          out.push(wardrobe);
+          out.push(event);
         }
       })
     } else {
-    angular.forEach(input, function(wardrobe) {
+    angular.forEach(events, function(event, index) {
       if (
-        wardrobe.temperature >= (search.temp-2)
-        && wardrobe.temperature <= (search.temp + 2)
-        && wardrobe.activity.toLowerCase() === search.activity.toLowerCase()
+        event.weather[0].temperature >= (search.temp-2)
+        && event.weather[0].temperature <= (search.temp + 2)
+        && event.activity.toLowerCase() === search.activity.toLowerCase()
       ) {
-        out.push(wardrobe);
+        out.push(event);
       }
     })
   }
@@ -26,22 +26,22 @@ angular
   }
 })
 .filter('validate', function () {
-  return function(input) {
-    if(input === undefined || input === null) {
+  return function(events) {
+    if(events === undefined || events === null) {
       return "N/A";
     }
-    return input;
+    return events;
   }
 })
 .filter('titleCase', function() {
-  return function (input) {
-    if(input === "N/A" || input === undefined){
+  return function (events) {
+    if(events === "N/A" || events === undefined){
       return "N/A";
     }
     var smallWords = /^(a|an|and|as|at|but|by|en|for|if|in|nor|of|on|or|per|the|to|vs?\.?|via)$/i;
-    if(input !== null) {
-      input = input.toLowerCase();
-      return input.replace(/[A-Za-z0-9\u00C0-\u00FF]+[^\s-]*/g, function(match, index, title) {
+    if(events !== null) {
+      events = events.toLowerCase();
+      return events.replace(/[A-Za-z0-9\u00C0-\u00FF]+[^\s-]*/g, function(match, index, title) {
         if (index > 0 && index + match.length !== title.length &&
             match.search(smallWords) > -1 && title.charAt(index - 2) !== ":" &&
             (title.charAt(index + match.length) !== '-' || title.charAt(index - 1) === '-') &&
