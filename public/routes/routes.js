@@ -9,7 +9,7 @@ module.exports = function($routeProvider, $locationProvider){
     //   controller: 'wardrobeController'
     // })
     .otherwise({
-      redirectTo:'/'
+      redirectTo: '/'
     });
   $locationProvider.html5Mode(true);
 };
