@@ -64,11 +64,11 @@
               </div>
               <div class="panel-body">
                 <div class="top-gear gear-label">Top Gear</div>
-                <div class="top-gear-list">{{ item.wardrobe.top | validate | titleCase }}, {{ item.wardrobe.head | validate | titleCase }}, {{ item.hands | validate | titleCase  }}, {{ item.arms | validate | titleCase  }}, {{ item.neck | validate | titleCase  }}</div>
+                <div class="top-gear-list">{{ item.wardrobe[0].top | validate | titleCase }}, {{ item.wardrobe[0].head | validate | titleCase }}, {{ item.hands | validate | titleCase  }}, {{ item.arms | validate | titleCase  }}, {{ item.neck | validate | titleCase  }}</div>
                 <div class="bottom-gear gear-label">Bottom Gear</div>
-                <div class="bottom-gear-list">{{ item.wardrobe.bottom | validate | titleCase }}, {{ item.wardrobe.socks | validate | titleCase }}</div>
+                <div class="bottom-gear-list">{{ item.wardrobe[0].bottom | validate | titleCase }}, {{ item.wardrobe[0].socks | validate | titleCase }}</div>
                 <div class="accessories-gear gear-label">Accessories Gear</div>
-                <div class="accessories-gear-list">{{ item.wardrobe.outter | validate | titleCase }}, {{ item.wardrobe.socks | validate | titleCase }}, {{ item.reflective | validate | titleCase }}</div>
+                <div class="accessories-gear-list">{{ item.wardrobe[0].outter | validate | titleCase }}, {{ item.wardrobe[0].socks | validate | titleCase }}, {{ item.reflective | validate | titleCase }}</div>
                 <div class="notes-gear-label gear-label">Notes</div>
                 <div class="notes-gear-list">{{item.rate | validate | titleCase }}; {{item.notes | validate | titleCase }} ~ {{item.addedOn | validate }}</div>
               </div>
@@ -99,11 +99,11 @@
             </div>
             <div class="panel-body">
               <div class="top-gear gear-label">Top Gear</div>
-              <div class="top-gear-list">{{ item.wardrobe.top | validate | titleCase }}, {{ item.wardrobe.head | validate | titleCase }}, {{ item.wardrobe.hands | validate | titleCase  }}, {{ item.wardrobe.arms | validate | titleCase  }}, {{ item.wardrobe.neck | validate | titleCase  }}</div>
+              <div class="top-gear-list">{{ item.wardrobe[0].top | validate | titleCase }}, {{ item.wardrobe[0].head | validate | titleCase }}, {{ item.wardrobe[0].hands | validate | titleCase  }}, {{ item.wardrobe[0].arms | validate | titleCase  }}, {{ item.wardrobe[0].neck | validate | titleCase  }}</div>
               <div class="bottom-gear gear-label">Bottom Gear</div>
-              <div class="bottom-gear-list">{{ item.wardrobe.bottom | validate | titleCase }}, {{ item.wardrobe.socks | validate | titleCase }}</div>
+              <div class="bottom-gear-list">{{ item.wardrobe[0].bottom | validate | titleCase }}, {{ item.wardrobe[0].socks | validate | titleCase }}</div>
               <div class="accessories-gear gear-label">Accessories Gear</div>
-              <div class="accessories-gear-list">{{ item.wardrobe.outter | validate | titleCase }}, {{ item.wardrobe.socks | validate | titleCase }}, {{ item.wardrobe.reflective | validate | titleCase }}</div>
+              <div class="accessories-gear-list">{{ item.wardrobe[0].outter | validate | titleCase }}, {{ item.wardrobe[0].socks | validate | titleCase }}, {{ item.wardrobe[0].reflective | validate | titleCase }}</div>
               <div class="notes-gear-label gear-label">Notes</div>
               <div class="notes-gear-list">{{item.rate | validate | titleCase }}; {{item.notes | validate | titleCase }} ~ {{item.addedOn | validate }}</div>
             </div>

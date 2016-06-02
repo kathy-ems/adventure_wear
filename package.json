@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "test": "mocha app_server/spec/server-spec.js; RES=$?; kill %1; exit $RES",
-    "lint": "eslint ./"
+    "lint": "eslint ."
   },
   "dependencies": {
     "angular": "^1.5.0",
@@ -22,6 +22,11 @@
   },
   "devDependencies": {
     "chai": "^1.9.1",
+    "eslint": "^2.10.2",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.8.0",
+    "eslint-plugin-jsx-a11y": "^1.2.0",
+    "eslint-plugin-react": "^5.1.1",
     "mocha": "^1.21.4"
   },
   "engines": {
